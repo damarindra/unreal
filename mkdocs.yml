@@ -1,9 +1,0 @@
-site_name: Unreal Ultimate Guides
-
-nav:
-    - Home: index.md
-    - 'Getting Started with Unreal':
-      - 'Compiling from Source Code': 'getting-started/compiling-from-source-code.md'
-
-theme:
-  name: material
