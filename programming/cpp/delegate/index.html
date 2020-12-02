@@ -14,7 +14,7 @@
     
     
       
-        <title>Enum / Bitmask - Unreal Ultimate Guides</title>
+        <title>Delegate - Unreal Ultimate Guides</title>
       
     
     
@@ -57,7 +57,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#where-do-we-declare-it" class="md-skip">
+        <a href="#simple-use-method" class="md-skip">
           Skip to content
         </a>
       
@@ -87,7 +87,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Enum / Bitmask
+              Delegate
             
           </span>
         </div>
@@ -300,6 +300,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../enumbitmask/" class="md-nav__link">
+      Enum / Bitmask
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -311,21 +323,9 @@
     
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      Enum / Bitmask
-    </a>
-    
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../delegate/" class="md-nav__link">
       Delegate
     </a>
+    
   </li>
 
         
@@ -391,84 +391,143 @@
               
                 
                 
-                <h1 id="where-do-we-declare-it">Where do we declare it (?)</h1>
-<p>All types are best to be stored inside a class such as GameTypes.</p>
-<p>Ex :</p>
-<p><img alt="enumbitmask_1" src="../img/enumbitmask_1.png" /></p>
-<h1 id="enum">Enum</h1>
-<p>Enum is quite different with c# version. When we create a type of enum, you can do this (as an example)</p>
-<pre><code>UENUM(BlueprintType)
-enum SpecialAction {
-    ACT_None    = 0 UMETA(DisplayName = &quot;None&quot;),
-    ACT_AutoMove    = 1 UMETA(DisplayName = &quot;Auto Move To&quot;),
-    ACT_Vault   = 2 UMETA(DisplayName = &quot;Vault&quot;),
-    ACT_Climb1M = 4 UMETA(DisplayName = &quot;Climb 1M&quot;) ,
-};
-</code></pre>
-<p>To declare the variable, you need TEnumAsByte</p>
-<pre><code>TEnumAsByte&lt;enum ESpecialAction&gt; SpecialAction;
-</code></pre>
-<p>All declaration need that, including params.</p>
-<h1 id="bitmask-flags">Bitmask / Flags</h1>
-<blockquote>
-<p>Not many people know how to do Bitmask in Unreal. By adding
-<code>meta = (UseEnumValuesAsMaskValuesInEditor="true")</code>
-your blueprint version will act the None value as 1 value.
-I'm driving crazy on the process finding this shit! no one mention it! I've found it here
-<a href="https://issues.unrealengine.com/issue/UE-32816">https://issues.unrealengine.com/issue/UE-32816</a></p>
-</blockquote>
-<p>Bitmask / Flags is not quite different with C# version, just a little bit. I'm using this for example :</p>
-<pre><code class="language-cpp">UENUM(BlueprintType, meta=(Bitflags, UseEnumValuesAsMaskValuesInEditor=&quot;true&quot;))
-enum class ESpecialAction : uint8 {
-    ACT_None    UMETA(DisplayName = &quot;None&quot;),
-    ACT_AutoMove    UMETA(DisplayName = &quot;Auto Move To&quot;),
-    ACT_Vault   UMETA(DisplayName = &quot;Vault&quot;),
-    ACT_Climb1M UMETA(DisplayName = &quot;Climb 1M&quot;) ,
-};
-ENUM_CLASS_FLAGS(ESpecialAction)
+                <p>There is 2 type of delegate. If you want to implement just for the blueprint version, you can create simple method. Otherwise, you can use real delegate</p>
+<h2 id="simple-use-method">Simple, use method</h2>
+<pre><code class="language-cpp">// header file
+UFUNCTION(BlueprintImplementableEvent)
+void ImplementThisOnBlueprint();
 
-// declaration
-//can be set as bitmask in blueprnt
-UPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum=ESpecialAction))
-uint8 SpecialAction;
+//or
 
-//cannot be set as bitmask in blueprint, so use on c++ only
-UPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum=ESpecialAction))
-ESpecialAction SpecialActionC;=&quot;true&quot;))enum class ESpecialAction : uint8 {  ACT_None    UMETA(DisplayName = &quot;None&quot;),    ACT_AutoMove    UMETA(DisplayName = &quot;Auto Move To&quot;),    ACT_Vault   UMETA(DisplayName = &quot;Vault&quot;),   ACT_Climb1M UMETA(DisplayName = &quot;Climb 1M&quot;) ,};ENUM_CLASS_FLAGS(ESpecialAction)// declaration//can be set as bitmask in blueprntUPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum=ESpecialAction))uint8 SpecialAction;//cannot be set as bitmask in blueprint, so use on c++ onlyUPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum=ESpecialAction))ESpecialAction SpecialActionC;
+UFUNCTION(BLueprintNativeEvent)
+void ImplementThisOnBlueprintAndC();
+
+// cpp file
+//implementation for the BlueprintNativeEvent
+void SomeClass::ImplementThisOnBlueprintAndC_Implementation(){
+  //DO Something
+}
 </code></pre>
-<ul>
-<li>UENUM(BlueprintType) : This will register the enum as an BlueprintType, so you can access it inside Blueprint version</li>
-<li>uint8 : Required when implements the Flags / Bitmask version of enum.</li>
-<li>None = 0 : Must have the 0 version. This will used for checking flag.</li>
-<li>ENUM_CLASS_FLAGS(Enum) : This register your enum as a flags</li>
-</ul>
-<h2 id="non-blueprint-version">Non Blueprint Version</h2>
-<h3 id="add">Add</h3>
-<pre><code>SpecialAction |= ESpecialAction::ACT_AutoMove;
+<p>If you using NativeEvent, right click on blueprint event node, and click <strong>"add call to parent function".</strong> Connect the event node to parent node to call the _Implementation version.</p>
+<h1 id="real-delegate">Real delegate</h1>
+<p><a href="https://wiki.unrealengine.com/Delegates_In_UE4,_Raw_Cpp_and_BP_Exposed">https://wiki.unrealengine.com/Delegates_In_UE4,_Raw_Cpp_and_BP_Exposed</a></p>
+<p>Note : You can only use this on the Component script. Actor can't expose the event.</p>
+<h2 id="copied-content">Copied Content</h2>
+<h2 id="steps">Steps</h2>
+<p><strong>Signature</strong></p>
+<p>You create the signature of the delegate, which declares what inputs any receiving functions should specify.</p>
+<pre><code class="language-cpp">//RamaMeleeWeapon class .h
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_SixParams( FRamaMeleeHitSignature, class AActor*, HitActor, class UPrimitiveComponent*, HitComponent, const FVector&amp;, ImpactPoint, const FVector&amp;, ImpactNormal, FName, HitBoneName, const struct FHitResult&amp;, HitResult );
 </code></pre>
-<h3 id="remove">Remove</h3>
-<pre><code>SpecialAction &amp;= ~ESpecialAction::ACT_AutoMove;
+<p>Notice the macro declares that I will be adding 6 parameters, there are similar macros for other quantities of parameters :)</p>
+<pre><code class="language-cpp"> DECLARE_DYNAMIC_MULTICAST_DELEGATE_SixParams
 </code></pre>
-<h3 id="has">Has</h3>
-<pre><code>if((SpecialAction &amp; ESpecialAction::ACT_Vault) != ESpecialAction::ACT_None)
+<p><strong>Calling the Delegate</strong></p>
+<p>You call the delegate within the class structure where it was defined, making sure to only execute it if it is currently bound, meaning at least 1 entity is listening for this delegate / event.</p>
+<p>.h</p>
+<pre><code class="language-cpp">//.h
+//RamaMeleeWeapon class .h
+
+//This should be in the class which calls the delegate, and where the signature was defined
+//This is an instance of the signature that was defined above!
+FRamaMeleeHitSignature RamaMeleeWeapon_OnHit;
 </code></pre>
-<h3 id="not-reverse">Not / Reverse</h3>
-<pre><code>~SpecialAction
+<p>.cpp</p>
+<pre><code class="language-cpp">//.cpp
+//Only the code that is supposed to initiate the event calls Broadcast()
+if(RamaMeleeWeapon_OnHit.IsBound()) //&lt;~~~~
+{
+    RamaMeleeWeapon_OnHit.Broadcast(Hit.GetActor(), Hit.GetComponent(), Hit.ImpactPoint, Hit.ImpactNormal, Hit.BoneName, Hit);
+}
 </code></pre>
-<h2 id="blueprint-version-uint8">Blueprint Version (uint8)</h2>
-<p>No big different, just cast it to the uint8 / the enum type.</p>
-<h3 id="add_1">Add</h3>
-<pre><code>SpecialAction |= (uint8)ESpecialAction::ACT_AutoMove;
+<p>Comment from <a href="https://wiki.unrealengine.com/index.php?title=User:Darkgaze&amp;action=edit&amp;redlink=1">Darkgaze</a>: As the official <a href="https://docs.unrealengine.com/latest/INT/Programming/UnrealArchitecture/Delegates/Multicast/index.html">Multicast docs</a> say:</p>
+<p>(...)It is always safe to call Broadcast() on a multi-cast delegate, even if nothing is bound. The only time you need to be careful is if you are using a delegate to initialize output variables, which is generally very bad to do.(...)</p>
+<p>So calling InBound() is not necessary. Only in Single-cast delegates.</p>
+<p>Responding to the Delegate</p>
+<p>Anywhere you want, you can declare functions which receive the parameters by type and name specified in the delegate signature.</p>
+<pre><code class="language-cpp">//Any class can add a function that uses the delegate signature and responds to the Broadcast() event UFUNCTION()void RespondToMeleeDamageTaken(AActor* HitActor, UPrimitiveComponent* HitComponent, const FVector&amp; ImpactPoint, const FVector&amp; ImpactNormal, FName HitBoneName, const FHitResult&amp; HitResult)
+UFUNCTION()
+void RespondToMeleeDamageTaken(AActor* HitActor, UPrimitiveComponent* HitComponent, const FVector&amp; ImpactPoint, const FVector&amp; ImpactNormal, FName HitBoneName, const FHitResult&amp; HitResult)
 </code></pre>
-<h3 id="remove_1">Remove</h3>
-<pre><code>SpecialAction &amp;= (uint8)(~ESpecialAction::ACT_AutoMove);
+<p>See below to learn how to bind the delegate instance to this function or any number of functions that are present in class instances anywhere in your code base!</p>
+<h2 id="ufunction">UFUNCTION() !</h2>
+<p>Please note that functions that are responding to delegate broadcasts should be UFUNCTION()!</p>
+<p>If your delegate Broadcast stalls the game for a bit and then doesnt work, it's because you did not make one of your receiving functions a UFUNCTION()</p>
+<p>&lt;3 Rama</p>
+<h2 id="binding-to-the-delegate">Binding To The Delegate</h2>
+<h3 id="dynamic-delegates">Dynamic Delegates</h3>
+<pre><code class="language-cpp">RamaMeleeWeaponComp-&gt;RamaMeleeWeapon_OnHit.AddDynamic(this, &amp;USomeClass::RespondToMeleeDamageTaken); //see above in wiki
 </code></pre>
-<h3 id="has_1">Has</h3>
-<pre><code>if((SpecialAction &amp; (uint8)ESpecialAction::ACT_Vault) != (uint8)ESpecialAction::ACT_None)
+<h3 id="multicast-delegates">Multicast Delegates</h3>
+<p>Binding to non-dynamic requires this syntax:</p>
+<pre><code class="language-cpp">RamaMeleeWeaponComp-&gt;RamaMeleeWeapon_OnHit.AddUObject(this, &amp;USomeClass::RespondToMeleeDamageTaken); //see above in wiki
 </code></pre>
-<h3 id="not-reverse_1">Not / Reverse</h3>
-<pre><code>(uint8)(~SpecialAction)
+<p><a href="https://docs.unrealengine.com/en-us/Programming/UnrealArchitecture/Delegates/Multicast">https://docs.unrealengine.com/en-us/Programming/UnrealArchitecture/Delegates/Multicast</a></p>
+<h3 id="non-multicast">Non Multicast</h3>
+<p>Binding a UObject to a non-dynamic, non-multicast delegate requires you to use the following syntax.</p>
+<pre><code class="language-cpp">//in some class cpp fileRamaMeleeWeaponComp-&gt;RamaMeleeWeapon_OnHit.BindUObject(this, &amp;USomeClass::RespondToMeleeDamageTaken); //see above in wiki
 </code></pre>
+<p>You need to access the delegate where it is stored, in my case this is the RamaMeleeWeaponComponent</p>
+<p>The idea is you are telling the delegate instance that it is getting a new binding, to this SomeClass insance, which is why you include the this pointer.</p>
+<p>So this code appears where you want to add the binding to the event/delegate, but it must refer to the one signature instance present in the original class instance.</p>
+<p>So basically this delegate binding is <strong>an agreement between two instances</strong>, where one instance is of the class that declares and implements the delegate, and the other instance is any ole' class that has declared the function signature to match the delegate signature.</p>
+<p>There's nothing abstract here, everything is instances, so you must bind your object instance to the delegate signature instance that is part of the instance of the class that is going to fire off the broadcasting.</p>
+<p>This is why I have a pointer to RamaMeleeWeaponComp-&gt;RamaMeleeWeapon_OnHit, and I am <strong>also</strong> including the this pointer so that the signature knows about the calling object instance.</p>
+<p>The reason it is a this pointer is because the code above is run in the object that wants to bind to the delegate, so this is a self-referencing pointer to the UObject we are binding to the delegate.</p>
+<h2 id="raw-c-class-instances">Raw C++ Class Instances</h2>
+<p>Raw delegates are used with non UObject classes, like plugin modules.</p>
+<pre><code class="language-cpp">RamaMeleeWeaponComp-&gt;RamaMeleeWeapon_OnHit.BindRaw(this, &amp;FSomeRawCPPClass::RespondToMeleeDamageTaken);
+</code></pre>
+<h2 id="slate-class-instances">Slate Class Instances</h2>
+<p>Slate delegates use this syntax:</p>
+<pre><code class="language-cpp">RamaMeleeWeaponComp-&gt;RamaMeleeWeapon_OnHit.CreateSP(this, &amp;SSomeSlateClass::RespondToMeleeDamageTaken);
+</code></pre>
+<h2 id="binding-is-per-instance">Binding is Per-Instance</h2>
+<p>Please note that when you bind to the delegate this is a per-instance process! That is why you need to include the this pointer, because whichever instance you are calling the code in, it is that particular instance whose function will get called when the delegate is broadcasted.</p>
+<p>This means you can choose to have only certain instances of a uobject respond to a delegate, or choose to bind or unbind at any time!</p>
+<h2 id="bp-friendly-delegates">BP-Friendly Delegates</h2>
+<p>A BP friendly delegate requires this additional .h code to expose the delegate to Blueprints.</p>
+<pre><code class="language-cpp">//RamaMeleeWeapon.h
+UPROPERTY(BlueprintAssignable, Category=&quot;Rama Melee Weapon&quot;)
+FRamaMeleeHitSignature RamaMeleeWeapon_OnHit;
+</code></pre>
+<p>BP-friendly Delegates should be DYNAMIC_MULTICAST so they can be serialized (saved/loaded) with the BP graph.</p>
+<h2 id="level-blueprint-friendly-delegates">Level Blueprint Friendly Delegates</h2>
+<p>When you've made BP-friendly delegates on objects that you can place in the level, you can simply right click on the object instance in your level -&gt; Add Event and see your new delegate! So nice!</p>
+<p>This is an additional benefit of using DYNAMIC_MULTICAST delegates! Multi-cast implies binding multiple of various object instances to the delegate and then firing off the event to everyone from a single .Broadcast, which can include your Level Blueprint as a recipient/listener!</p>
+<h2 id="video-example">Video Example</h2>
+<p>Here is a video on how a C++ delegate created in an actor component in C++ looks and is called in Blueprints!</p>
+<p>The code in this wiki and this video are from my <a href="http://ue4code.com/melee_weapon_system_plugin_per_bone_collision_accuracy">Melee Weapon Plugin</a></p>
+<p><a href="http://www.youtube.com/watch?v=aufEB4TCf30&amp;t=5m24s">http://www.youtube.com/watch?v=aufEB4TCf30&amp;t=5m24s</a></p>
+<p><a href="http://www.youtube.com/watch?v=aufEB4TCf30&amp;t=5m24s">Skip to 5:24</a></p>
+<h2 id="further-reading">Further Reading</h2>
+<p>Epic Documentation: <a href="https://docs.unrealengine.com/latest/INT/Programming/UnrealArchitecture/Delegates/">https://docs.unrealengine.com/latest/INT/Programming/UnrealArchitecture/Delegates/</a></p>
+<h2 id="dynamic_multicast-and-other-types">DYNAMIC_MULTICAST And Other Types</h2>
+<p>There are other delegate types besides DYNAMIC_MULTICAST that are not quite as versatile when it comes to Blueprints.</p>
+<p>Check out the source code of Delegate.h</p>
+<pre><code class="language-cpp"> Runtime/Core/Public/Delegates/Delegate.h
+</code></pre>
+<p>For a detailed explanation!</p>
+<p>Sample from this file:</p>
+<pre><code>** *  C++ DELEGATES
+ *  -----------------------------------------------------------------------------------------------
+ *
+ *  This system allows you to call member functions on C++ objects in a generic, yet type-safe way.
+ *  Using delegates, you can dynamically bind to a member function of an arbitrary object,
+ *  then call functions on the object, even if the caller doesn't know the object's type.
+ *
+ *  The system predefines various combinations of generic function signatures with which you can
+ *  declare a delegate type from, filling in the type names for return value and parameters with
+ *  whichever types you need.
+ *
+ *  Both single-cast and multi-cast delegates are supported, as well as &quot;dynamic&quot; delegates which
+ *  can be safely serialized to disk.  Additionally, delegates may define &quot;payload&quot; data which
+ *  will stored and passed directly to bound functions.
+</code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>Enjoy using delegates in UE4 so that any part of your code base can respond to an event triggered by one section of your code!</p>
+<p>Also enjoy exposing delegates via C++ for the rest of your team to use in Blueprints!</p>
+<p>Enjoooy!</p>
                 
               
               
@@ -487,7 +546,7 @@ ESpecialAction SpecialActionC;=&quot;true&quot;))enum class ESpecialAction : uin
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../struct/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../enumbitmask/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -496,19 +555,19 @@ ESpecialAction SpecialActionC;=&quot;true&quot;))enum class ESpecialAction : uin
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Struct
+                Enum / Bitmask
               </div>
             </div>
           </a>
         
         
-          <a href="../delegate/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../reference/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Delegate
+                Reference
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
