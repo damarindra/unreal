@@ -9,19 +9,19 @@
       
       
       
-      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.6">
     
     
       
-        <title>Unreal Ultimate Guides</title>
+        <title>Where do we declare it (?) - Unreal Ultimate Guides</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.6910b76c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6910b76c.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.196e0c26.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.196e0c26.min.css">
         
       
     
@@ -57,7 +57,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-mkdocs" class="md-skip">
+        <a href="#where-do-we-declare-it" class="md-skip">
           Skip to content
         </a>
       
@@ -70,7 +70,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="." title="Unreal Ultimate Guides" class="md-header-nav__button md-logo" aria-label="Unreal Ultimate Guides">
+    <a href="../../.." title="Unreal Ultimate Guides" class="md-header-nav__button md-logo" aria-label="Unreal Ultimate Guides">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -87,7 +87,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Home
+              Where do we declare it (?)
             
           </span>
         </div>
@@ -144,7 +144,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Unreal Ultimate Guides" class="md-nav__button md-logo" aria-label="Unreal Ultimate Guides">
+    <a href="../../.." title="Unreal Ultimate Guides" class="md-nav__button md-logo" aria-label="Unreal Ultimate Guides">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -159,56 +159,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Home
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="." class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../.." class="md-nav__link">
       Home
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -238,7 +193,7 @@
 
 
   <li class="md-nav__item">
-    <a href="getting-started/unreal-from-source-code/" class="md-nav__link">
+    <a href="../../../getting-started/unreal-from-source-code/" class="md-nav__link">
       Unreal from Source Code
     </a>
   </li>
@@ -266,28 +221,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -299,20 +232,83 @@
               
                 
                 
-                <h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>Unreal Ultimate Guide, this page was created to help me in case I forget how to do some stuff. So basically, my potato brain difficult to handle so many stuff, so here we are!</p>
-<h2 id="commands">Commands</h2>
+                <h1 id="where-do-we-declare-it">Where do we declare it (?)</h1>
+<p>All types are best to be stored inside a class such as GameTypes.</p>
+<p>Ex :</p>
+<p><img alt="enumbitmask_1" src="../img/enumbitmask_1.png" /></p>
+<h1 id="enum">Enum</h1>
+<p>Enum is quite different with c# version. When we create a type of enum, you can do this (as an example)</p>
+<pre><code>UENUM(BlueprintType)
+enum SpecialAction {
+    ACT_None    = 0 UMETA(DisplayName = &quot;None&quot;),
+    ACT_AutoMove    = 1 UMETA(DisplayName = &quot;Auto Move To&quot;),
+    ACT_Vault   = 2 UMETA(DisplayName = &quot;Vault&quot;),
+    ACT_Climb1M = 4 UMETA(DisplayName = &quot;Climb 1M&quot;) ,
+};
+</code></pre>
+<p>To declare the variable, you need TEnumAsByte</p>
+<pre><code>TEnumAsByte&lt;enum ESpecialAction&gt; SpecialAction;
+</code></pre>
+<p>All declaration need that, including params.</p>
+<h1 id="bitmask-flags">Bitmask / Flags</h1>
+<blockquote>
+<p>Not many people know how to do Bitmask in Unreal. By adding
+<code>meta = (UseEnumValuesAsMaskValuesInEditor="true")</code>
+your blueprint version will act the None value as 1 value.
+I'm driving crazy on the process finding this shit! no one mention it! I've found it here
+<a href="https://issues.unrealengine.com/issue/UE-32816">https://issues.unrealengine.com/issue/UE-32816</a></p>
+</blockquote>
+<p>Bitmask / Flags is not quite different with C# version, just a little bit. I'm using this for example :</p>
+<pre><code class="language-cpp">UENUM(BlueprintType, meta=(Bitflags, UseEnumValuesAsMaskValuesInEditor=&quot;true&quot;))
+enum class ESpecialAction : uint8 {
+    ACT_None    UMETA(DisplayName = &quot;None&quot;),
+    ACT_AutoMove    UMETA(DisplayName = &quot;Auto Move To&quot;),
+    ACT_Vault   UMETA(DisplayName = &quot;Vault&quot;),
+    ACT_Climb1M UMETA(DisplayName = &quot;Climb 1M&quot;) ,
+};
+ENUM_CLASS_FLAGS(ESpecialAction)
+
+// declaration
+//can be set as bitmask in blueprnt
+UPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum=ESpecialAction))
+uint8 SpecialAction;
+
+//cannot be set as bitmask in blueprint, so use on c++ only
+UPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum=ESpecialAction))
+ESpecialAction SpecialActionC;=&quot;true&quot;))enum class ESpecialAction : uint8 {  ACT_None    UMETA(DisplayName = &quot;None&quot;),    ACT_AutoMove    UMETA(DisplayName = &quot;Auto Move To&quot;),    ACT_Vault   UMETA(DisplayName = &quot;Vault&quot;),   ACT_Climb1M UMETA(DisplayName = &quot;Climb 1M&quot;) ,};ENUM_CLASS_FLAGS(ESpecialAction)// declaration//can be set as bitmask in blueprntUPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum=ESpecialAction))uint8 SpecialAction;//cannot be set as bitmask in blueprint, so use on c++ onlyUPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum=ESpecialAction))ESpecialAction SpecialActionC;
+</code></pre>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li>UENUM(BlueprintType) : This will register the enum as an BlueprintType, so you can access it inside Blueprint version</li>
+<li>uint8 : Required when implements the Flags / Bitmask version of enum.</li>
+<li>None = 0 : Must have the 0 version. This will used for checking flag.</li>
+<li>ENUM_CLASS_FLAGS(Enum) : This register your enum as a flags</li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
+<h2 id="non-blueprint-version">Non Blueprint Version</h2>
+<h3 id="add">Add</h3>
+<pre><code>SpecialAction |= ESpecialAction::ACT_AutoMove;
+</code></pre>
+<h3 id="remove">Remove</h3>
+<pre><code>SpecialAction &amp;= ~ESpecialAction::ACT_AutoMove;
+</code></pre>
+<h3 id="has">Has</h3>
+<pre><code>if((SpecialAction &amp; ESpecialAction::ACT_Vault) != ESpecialAction::ACT_None)
+</code></pre>
+<h3 id="not-reverse">Not / Reverse</h3>
+<pre><code>~SpecialAction
+</code></pre>
+<h2 id="blueprint-version-uint8">Blueprint Version (uint8)</h2>
+<p>No big different, just cast it to the uint8 / the enum type.</p>
+<h3 id="add_1">Add</h3>
+<pre><code>SpecialAction |= (uint8)ESpecialAction::ACT_AutoMove;
+</code></pre>
+<h3 id="remove_1">Remove</h3>
+<pre><code>SpecialAction &amp;= (uint8)(~ESpecialAction::ACT_AutoMove);
+</code></pre>
+<h3 id="has_1">Has</h3>
+<pre><code>if((SpecialAction &amp; (uint8)ESpecialAction::ACT_Vault) != (uint8)ESpecialAction::ACT_None)
+</code></pre>
+<h3 id="not-reverse_1">Not / Reverse</h3>
+<pre><code>(uint8)(~SpecialAction)
 </code></pre>
                 
               
@@ -328,27 +324,6 @@ docs/
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-        
-          <a href="getting-started/unreal-from-source-code/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Unreal from Source Code
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -366,15 +341,15 @@ docs/
       
     </div>
     
-      <script src="assets/javascripts/vendor.fd16492e.min.js"></script>
-      <script src="assets/javascripts/bundle.7836ba4d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../../../assets/javascripts/vendor.fd16492e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7836ba4d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
-          base: ".",
+          base: "../../..",
           features: [],
           search: Object.assign({
-            worker: "assets/javascripts/worker/search.4ac00218.min.js"
+            worker: "../../../assets/javascripts/worker/search.4ac00218.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
