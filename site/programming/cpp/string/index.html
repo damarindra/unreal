@@ -14,7 +14,7 @@
     
     
       
-        <title>Static Variable - Unreal Ultimate Guides</title>
+        <title>String Handling - Unreal Ultimate Guides</title>
       
     
     
@@ -82,7 +82,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Static Variable
+              String Handling
             
           </span>
         </div>
@@ -331,18 +331,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../static-variable/" class="md-nav__link">
       Static Variable
     </a>
-    
   </li>
 
         
@@ -386,11 +379,18 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../string/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       String Handling
     </a>
+    
   </li>
 
         
@@ -490,17 +490,16 @@
               
                 
                 
-                  <h1>Static Variable</h1>
+                  <h1>String Handling</h1>
                 
-                <p>Static variable in cpp is unique (I have experience on C# before). So, when creating static variable, you can't access it just like that. What you need to do is declaring that static variable into cpp file.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// .h</span>
-<span class="k">struct</span> <span class="nc">FSimpleStruct</span><span class="p">{</span>
-    <span class="k">static</span> <span class="n">FSimpleStruct</span> <span class="n">Instance</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">// .cpp</span>
-<span class="n">FSimpleStruct</span> <span class="n">FSimpleStruct</span><span class="o">::</span><span class="n">Instance</span><span class="p">;</span>
-</code></pre></div>
+                <p>Unreal has some type for handling string. The tl:dr; version is</p>
+<ul>
+<li><strong>TEXT()</strong> is your friend! Use this to create any type of string.</li>
+<li><strong>FName</strong> is cheaper, but case-insensitive. It is immutable (can't be manipulated)</li>
+<li><strong>FText</strong> is for user. Everything that users see, better using <code>FText</code>. FText support localization, that's means you can formatting this text, localized text, and so on.</li>
+<li><strong>FString</strong> is expensive. This like pure string in the other language.</li>
+</ul>
+<p>If you want complete guide on string handling, you can read <a href="https://docs.unrealengine.com/en-US/Programming/UnrealArchitecture/StringHandling/index.html">official documentation</a>.</p>
                 
               
               
@@ -519,7 +518,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../reference/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../display-priority/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -528,19 +527,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Reference
+                Display Priority
               </div>
             </div>
           </a>
         
         
-          <a href="../logging/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../preprocessor/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Logging
+                PREPROCESSOR
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

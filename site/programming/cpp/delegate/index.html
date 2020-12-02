@@ -353,8 +353,129 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../logging/" class="md-nav__link">
+      Logging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../uproperty-ufunction/" class="md-nav__link">
+      UProperty and UFunction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../display-priority/" class="md-nav__link">
+      Display Priority
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../string/" class="md-nav__link">
+      String Handling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../preprocessor/" class="md-nav__link">
+      PREPROCESSOR
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../actor-lifecycle/" class="md-nav__link">
+      Actor Life-cycle
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    <label class="md-nav__link" for="nav-5">
+      Articles
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Articles" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Articles
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../articles/controller-and-camera/" class="md-nav__link">
+      Controller and Camera - What the difference?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../articles/player-camera-manager/" class="md-nav__link">
+      Player Camera Manager - Creating Custom Camera Movement
+    </a>
   </li>
 
         
@@ -393,21 +514,21 @@
                 
                 <p>There is 2 type of delegate. If you want to implement just for the blueprint version, you can create simple method. Otherwise, you can use real delegate</p>
 <h2 id="simple-use-method">Simple, use method</h2>
-<pre><code class="language-cpp">// header file
-UFUNCTION(BlueprintImplementableEvent)
-void ImplementThisOnBlueprint();
+<div class="highlight"><pre><span></span><code><span class="c1">// header file</span>
+<span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BlueprintImplementableEvent</span><span class="p">)</span>
+<span class="kt">void</span> <span class="n">ImplementThisOnBlueprint</span><span class="p">();</span>
 
-//or
+<span class="c1">//or</span>
 
-UFUNCTION(BLueprintNativeEvent)
-void ImplementThisOnBlueprintAndC();
+<span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BLueprintNativeEvent</span><span class="p">)</span>
+<span class="kt">void</span> <span class="n">ImplementThisOnBlueprintAndC</span><span class="p">();</span>
 
-// cpp file
-//implementation for the BlueprintNativeEvent
-void SomeClass::ImplementThisOnBlueprintAndC_Implementation(){
-  //DO Something
-}
-</code></pre>
+<span class="c1">// cpp file</span>
+<span class="c1">//implementation for the BlueprintNativeEvent</span>
+<span class="kt">void</span> <span class="n">SomeClass</span><span class="o">::</span><span class="n">ImplementThisOnBlueprintAndC_Implementation</span><span class="p">(){</span>
+  <span class="c1">//DO Something</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>If you using NativeEvent, right click on blueprint event node, and click <strong>"add call to parent function".</strong> Connect the event node to parent node to call the _Implementation version.</p>
 <h1 id="real-delegate">Real delegate</h1>
 <p><a href="https://wiki.unrealengine.com/Delegates_In_UE4,_Raw_Cpp_and_BP_Exposed">https://wiki.unrealengine.com/Delegates_In_UE4,_Raw_Cpp_and_BP_Exposed</a></p>
@@ -416,39 +537,39 @@ void SomeClass::ImplementThisOnBlueprintAndC_Implementation(){
 <h2 id="steps">Steps</h2>
 <p><strong>Signature</strong></p>
 <p>You create the signature of the delegate, which declares what inputs any receiving functions should specify.</p>
-<pre><code class="language-cpp">//RamaMeleeWeapon class .h
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_SixParams( FRamaMeleeHitSignature, class AActor*, HitActor, class UPrimitiveComponent*, HitComponent, const FVector&amp;, ImpactPoint, const FVector&amp;, ImpactNormal, FName, HitBoneName, const struct FHitResult&amp;, HitResult );
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">//RamaMeleeWeapon class .h</span>
+<span class="n">DECLARE_DYNAMIC_MULTICAST_DELEGATE_SixParams</span><span class="p">(</span> <span class="n">FRamaMeleeHitSignature</span><span class="p">,</span> <span class="k">class</span> <span class="nc">AActor</span><span class="o">*</span><span class="p">,</span> <span class="n">HitActor</span><span class="p">,</span> <span class="k">class</span> <span class="nc">UPrimitiveComponent</span><span class="o">*</span><span class="p">,</span> <span class="n">HitComponent</span><span class="p">,</span> <span class="k">const</span> <span class="n">FVector</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">ImpactPoint</span><span class="p">,</span> <span class="k">const</span> <span class="n">FVector</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">ImpactNormal</span><span class="p">,</span> <span class="n">FName</span><span class="p">,</span> <span class="n">HitBoneName</span><span class="p">,</span> <span class="k">const</span> <span class="k">struct</span> <span class="nc">FHitResult</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">HitResult</span> <span class="p">);</span>
+</code></pre></div>
 <p>Notice the macro declares that I will be adding 6 parameters, there are similar macros for other quantities of parameters :)</p>
-<pre><code class="language-cpp"> DECLARE_DYNAMIC_MULTICAST_DELEGATE_SixParams
-</code></pre>
+<div class="highlight"><pre><span></span><code> <span class="n">DECLARE_DYNAMIC_MULTICAST_DELEGATE_SixParams</span>
+</code></pre></div>
 <p><strong>Calling the Delegate</strong></p>
 <p>You call the delegate within the class structure where it was defined, making sure to only execute it if it is currently bound, meaning at least 1 entity is listening for this delegate / event.</p>
 <p>.h</p>
-<pre><code class="language-cpp">//.h
-//RamaMeleeWeapon class .h
+<div class="highlight"><pre><span></span><code><span class="c1">//.h</span>
+<span class="c1">//RamaMeleeWeapon class .h</span>
 
-//This should be in the class which calls the delegate, and where the signature was defined
-//This is an instance of the signature that was defined above!
-FRamaMeleeHitSignature RamaMeleeWeapon_OnHit;
-</code></pre>
+<span class="c1">//This should be in the class which calls the delegate, and where the signature was defined</span>
+<span class="c1">//This is an instance of the signature that was defined above!</span>
+<span class="n">FRamaMeleeHitSignature</span> <span class="n">RamaMeleeWeapon_OnHit</span><span class="p">;</span>
+</code></pre></div>
 <p>.cpp</p>
-<pre><code class="language-cpp">//.cpp
-//Only the code that is supposed to initiate the event calls Broadcast()
-if(RamaMeleeWeapon_OnHit.IsBound()) //&lt;~~~~
-{
-    RamaMeleeWeapon_OnHit.Broadcast(Hit.GetActor(), Hit.GetComponent(), Hit.ImpactPoint, Hit.ImpactNormal, Hit.BoneName, Hit);
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">//.cpp</span>
+<span class="c1">//Only the code that is supposed to initiate the event calls Broadcast()</span>
+<span class="k">if</span><span class="p">(</span><span class="n">RamaMeleeWeapon_OnHit</span><span class="p">.</span><span class="n">IsBound</span><span class="p">())</span> <span class="c1">//&lt;~~~~</span>
+<span class="p">{</span>
+    <span class="n">RamaMeleeWeapon_OnHit</span><span class="p">.</span><span class="n">Broadcast</span><span class="p">(</span><span class="n">Hit</span><span class="p">.</span><span class="n">GetActor</span><span class="p">(),</span> <span class="n">Hit</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">(),</span> <span class="n">Hit</span><span class="p">.</span><span class="n">ImpactPoint</span><span class="p">,</span> <span class="n">Hit</span><span class="p">.</span><span class="n">ImpactNormal</span><span class="p">,</span> <span class="n">Hit</span><span class="p">.</span><span class="n">BoneName</span><span class="p">,</span> <span class="n">Hit</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>Comment from <a href="https://wiki.unrealengine.com/index.php?title=User:Darkgaze&amp;action=edit&amp;redlink=1">Darkgaze</a>: As the official <a href="https://docs.unrealengine.com/latest/INT/Programming/UnrealArchitecture/Delegates/Multicast/index.html">Multicast docs</a> say:</p>
 <p>(...)It is always safe to call Broadcast() on a multi-cast delegate, even if nothing is bound. The only time you need to be careful is if you are using a delegate to initialize output variables, which is generally very bad to do.(...)</p>
 <p>So calling InBound() is not necessary. Only in Single-cast delegates.</p>
 <p>Responding to the Delegate</p>
 <p>Anywhere you want, you can declare functions which receive the parameters by type and name specified in the delegate signature.</p>
-<pre><code class="language-cpp">//Any class can add a function that uses the delegate signature and responds to the Broadcast() event UFUNCTION()void RespondToMeleeDamageTaken(AActor* HitActor, UPrimitiveComponent* HitComponent, const FVector&amp; ImpactPoint, const FVector&amp; ImpactNormal, FName HitBoneName, const FHitResult&amp; HitResult)
-UFUNCTION()
-void RespondToMeleeDamageTaken(AActor* HitActor, UPrimitiveComponent* HitComponent, const FVector&amp; ImpactPoint, const FVector&amp; ImpactNormal, FName HitBoneName, const FHitResult&amp; HitResult)
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">//Any class can add a function that uses the delegate signature and responds to the Broadcast() event UFUNCTION()void RespondToMeleeDamageTaken(AActor* HitActor, UPrimitiveComponent* HitComponent, const FVector&amp; ImpactPoint, const FVector&amp; ImpactNormal, FName HitBoneName, const FHitResult&amp; HitResult)</span>
+<span class="n">UFUNCTION</span><span class="p">()</span>
+<span class="kt">void</span> <span class="n">RespondToMeleeDamageTaken</span><span class="p">(</span><span class="n">AActor</span><span class="o">*</span> <span class="n">HitActor</span><span class="p">,</span> <span class="n">UPrimitiveComponent</span><span class="o">*</span> <span class="n">HitComponent</span><span class="p">,</span> <span class="k">const</span> <span class="n">FVector</span><span class="o">&amp;</span> <span class="n">ImpactPoint</span><span class="p">,</span> <span class="k">const</span> <span class="n">FVector</span><span class="o">&amp;</span> <span class="n">ImpactNormal</span><span class="p">,</span> <span class="n">FName</span> <span class="n">HitBoneName</span><span class="p">,</span> <span class="k">const</span> <span class="n">FHitResult</span><span class="o">&amp;</span> <span class="n">HitResult</span><span class="p">)</span>
+</code></pre></div>
 <p>See below to learn how to bind the delegate instance to this function or any number of functions that are present in class instances anywhere in your code base!</p>
 <h2 id="ufunction">UFUNCTION() !</h2>
 <p>Please note that functions that are responding to delegate broadcasts should be UFUNCTION()!</p>
@@ -456,17 +577,17 @@ void RespondToMeleeDamageTaken(AActor* HitActor, UPrimitiveComponent* HitCompone
 <p>&lt;3 Rama</p>
 <h2 id="binding-to-the-delegate">Binding To The Delegate</h2>
 <h3 id="dynamic-delegates">Dynamic Delegates</h3>
-<pre><code class="language-cpp">RamaMeleeWeaponComp-&gt;RamaMeleeWeapon_OnHit.AddDynamic(this, &amp;USomeClass::RespondToMeleeDamageTaken); //see above in wiki
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">RamaMeleeWeaponComp</span><span class="o">-&gt;</span><span class="n">RamaMeleeWeapon_OnHit</span><span class="p">.</span><span class="n">AddDynamic</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">USomeClass</span><span class="o">::</span><span class="n">RespondToMeleeDamageTaken</span><span class="p">);</span> <span class="c1">//see above in wiki</span>
+</code></pre></div>
 <h3 id="multicast-delegates">Multicast Delegates</h3>
 <p>Binding to non-dynamic requires this syntax:</p>
-<pre><code class="language-cpp">RamaMeleeWeaponComp-&gt;RamaMeleeWeapon_OnHit.AddUObject(this, &amp;USomeClass::RespondToMeleeDamageTaken); //see above in wiki
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">RamaMeleeWeaponComp</span><span class="o">-&gt;</span><span class="n">RamaMeleeWeapon_OnHit</span><span class="p">.</span><span class="n">AddUObject</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">USomeClass</span><span class="o">::</span><span class="n">RespondToMeleeDamageTaken</span><span class="p">);</span> <span class="c1">//see above in wiki</span>
+</code></pre></div>
 <p><a href="https://docs.unrealengine.com/en-us/Programming/UnrealArchitecture/Delegates/Multicast">https://docs.unrealengine.com/en-us/Programming/UnrealArchitecture/Delegates/Multicast</a></p>
 <h3 id="non-multicast">Non Multicast</h3>
 <p>Binding a UObject to a non-dynamic, non-multicast delegate requires you to use the following syntax.</p>
-<pre><code class="language-cpp">//in some class cpp fileRamaMeleeWeaponComp-&gt;RamaMeleeWeapon_OnHit.BindUObject(this, &amp;USomeClass::RespondToMeleeDamageTaken); //see above in wiki
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">//in some class cpp fileRamaMeleeWeaponComp-&gt;RamaMeleeWeapon_OnHit.BindUObject(this, &amp;USomeClass::RespondToMeleeDamageTaken); //see above in wiki</span>
+</code></pre></div>
 <p>You need to access the delegate where it is stored, in my case this is the RamaMeleeWeaponComponent</p>
 <p>The idea is you are telling the delegate instance that it is getting a new binding, to this SomeClass insance, which is why you include the this pointer.</p>
 <p>So this code appears where you want to add the binding to the event/delegate, but it must refer to the one signature instance present in the original class instance.</p>
@@ -476,21 +597,21 @@ void RespondToMeleeDamageTaken(AActor* HitActor, UPrimitiveComponent* HitCompone
 <p>The reason it is a this pointer is because the code above is run in the object that wants to bind to the delegate, so this is a self-referencing pointer to the UObject we are binding to the delegate.</p>
 <h2 id="raw-c-class-instances">Raw C++ Class Instances</h2>
 <p>Raw delegates are used with non UObject classes, like plugin modules.</p>
-<pre><code class="language-cpp">RamaMeleeWeaponComp-&gt;RamaMeleeWeapon_OnHit.BindRaw(this, &amp;FSomeRawCPPClass::RespondToMeleeDamageTaken);
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">RamaMeleeWeaponComp</span><span class="o">-&gt;</span><span class="n">RamaMeleeWeapon_OnHit</span><span class="p">.</span><span class="n">BindRaw</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">FSomeRawCPPClass</span><span class="o">::</span><span class="n">RespondToMeleeDamageTaken</span><span class="p">);</span>
+</code></pre></div>
 <h2 id="slate-class-instances">Slate Class Instances</h2>
 <p>Slate delegates use this syntax:</p>
-<pre><code class="language-cpp">RamaMeleeWeaponComp-&gt;RamaMeleeWeapon_OnHit.CreateSP(this, &amp;SSomeSlateClass::RespondToMeleeDamageTaken);
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">RamaMeleeWeaponComp</span><span class="o">-&gt;</span><span class="n">RamaMeleeWeapon_OnHit</span><span class="p">.</span><span class="n">CreateSP</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">SSomeSlateClass</span><span class="o">::</span><span class="n">RespondToMeleeDamageTaken</span><span class="p">);</span>
+</code></pre></div>
 <h2 id="binding-is-per-instance">Binding is Per-Instance</h2>
 <p>Please note that when you bind to the delegate this is a per-instance process! That is why you need to include the this pointer, because whichever instance you are calling the code in, it is that particular instance whose function will get called when the delegate is broadcasted.</p>
 <p>This means you can choose to have only certain instances of a uobject respond to a delegate, or choose to bind or unbind at any time!</p>
 <h2 id="bp-friendly-delegates">BP-Friendly Delegates</h2>
 <p>A BP friendly delegate requires this additional .h code to expose the delegate to Blueprints.</p>
-<pre><code class="language-cpp">//RamaMeleeWeapon.h
-UPROPERTY(BlueprintAssignable, Category=&quot;Rama Melee Weapon&quot;)
-FRamaMeleeHitSignature RamaMeleeWeapon_OnHit;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">//RamaMeleeWeapon.h</span>
+<span class="n">UPROPERTY</span><span class="p">(</span><span class="n">BlueprintAssignable</span><span class="p">,</span> <span class="n">Category</span><span class="o">=</span><span class="s">&quot;Rama Melee Weapon&quot;</span><span class="p">)</span>
+<span class="n">FRamaMeleeHitSignature</span> <span class="n">RamaMeleeWeapon_OnHit</span><span class="p">;</span>
+</code></pre></div>
 <p>BP-friendly Delegates should be DYNAMIC_MULTICAST so they can be serialized (saved/loaded) with the BP graph.</p>
 <h2 id="level-blueprint-friendly-delegates">Level Blueprint Friendly Delegates</h2>
 <p>When you've made BP-friendly delegates on objects that you can place in the level, you can simply right click on the object instance in your level -&gt; Add Event and see your new delegate! So nice!</p>
@@ -505,16 +626,16 @@ FRamaMeleeHitSignature RamaMeleeWeapon_OnHit;
 <h2 id="dynamic_multicast-and-other-types">DYNAMIC_MULTICAST And Other Types</h2>
 <p>There are other delegate types besides DYNAMIC_MULTICAST that are not quite as versatile when it comes to Blueprints.</p>
 <p>Check out the source code of Delegate.h</p>
-<pre><code class="language-cpp"> Runtime/Core/Public/Delegates/Delegate.h
-</code></pre>
+<div class="highlight"><pre><span></span><code> <span class="n">Runtime</span><span class="o">/</span><span class="n">Core</span><span class="o">/</span><span class="n">Public</span><span class="o">/</span><span class="n">Delegates</span><span class="o">/</span><span class="n">Delegate</span><span class="p">.</span><span class="n">h</span>
+</code></pre></div>
 <p>For a detailed explanation!</p>
 <p>Sample from this file:</p>
-<pre><code>** *  C++ DELEGATES
+<div class="highlight"><pre><span></span><code>** *  C++ DELEGATES
  *  -----------------------------------------------------------------------------------------------
  *
  *  This system allows you to call member functions on C++ objects in a generic, yet type-safe way.
  *  Using delegates, you can dynamically bind to a member function of an arbitrary object,
- *  then call functions on the object, even if the caller doesn't know the object's type.
+ *  then call functions on the object, even if the caller doesn&#39;t know the object&#39;s type.
  *
  *  The system predefines various combinations of generic function signatures with which you can
  *  declare a delegate type from, filling in the type names for return value and parameters with
@@ -523,7 +644,7 @@ FRamaMeleeHitSignature RamaMeleeWeapon_OnHit;
  *  Both single-cast and multi-cast delegates are supported, as well as &quot;dynamic&quot; delegates which
  *  can be safely serialized to disk.  Additionally, delegates may define &quot;payload&quot; data which
  *  will stored and passed directly to bound functions.
-</code></pre>
+</code></pre></div>
 <h2 id="conclusion">Conclusion</h2>
 <p>Enjoy using delegates in UE4 so that any part of your code base can respond to an event triggered by one section of your code!</p>
 <p>Also enjoy exposing delegates via C++ for the rest of your team to use in Blueprints!</p>

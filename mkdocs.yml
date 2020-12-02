@@ -14,9 +14,21 @@ nav:
         - 'Delegate': 'programming/cpp/delegate.md'
         - 'Reference': 'programming/cpp/reference.md'
         - 'Static Variable': 'programming/cpp/static-variable.md'
+        - 'Logging': 'programming/cpp/logging.md'
+        - 'UProperty and UFunction': 'programming/cpp/uproperty-ufunction.md'
+        - 'Display Priority': 'programming/cpp/display-priority.md'
+        - 'String Handling': 'programming/cpp/string.md'
+        - 'PREPROCESSOR': 'programming/cpp/preprocessor.md'
+    - 'Actor Life-cycle': 'actor-lifecycle.md'
+    - 'Articles':
+      - 'Controller and Camera - What the difference?': 'articles/controller-and-camera.md'
+      - 'Player Camera Manager - Creating Custom Camera Movement': 'articles/player-camera-manager.md'
 
 theme:
   name: material
 
 markdown_extensions:
   - attr_list
+  - pymdownx.highlight
+  - pymdownx.keys
+  - pymdownx.superfences

@@ -346,8 +346,129 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../logging/" class="md-nav__link">
+      Logging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../uproperty-ufunction/" class="md-nav__link">
+      UProperty and UFunction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../display-priority/" class="md-nav__link">
+      Display Priority
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../string/" class="md-nav__link">
+      String Handling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../preprocessor/" class="md-nav__link">
+      PREPROCESSOR
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../actor-lifecycle/" class="md-nav__link">
+      Actor Life-cycle
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    <label class="md-nav__link" for="nav-5">
+      Articles
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Articles" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Articles
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../articles/controller-and-camera/" class="md-nav__link">
+      Controller and Camera - What the difference?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../articles/player-camera-manager/" class="md-nav__link">
+      Player Camera Manager - Creating Custom Camera Movement
+    </a>
   </li>
 
         
@@ -372,69 +493,69 @@
                   <h1>Struct</h1>
                 
                 <p>Struct in unreal has a special macro to enable usage on the Blueprint version. The macro is <code>USTRUCT()</code>. To make it blueprint type, you can pass the BlueprintType inside <code>USTRUCT(BlueprintType)</code>.</p>
-<pre><code class="language-cpp">//If you want this to appear in BP, make sure to use this instead
-//USTRUCT(BlueprintType)
-USTRUCT()
-struct FJoyStruct{
-    GENERATED_BODY()
-    //Always make USTRUCT variables into UPROPERTY()
-    //    any non-UPROPERTY() struct vars are not replicated
-    // So to simplify your life for later debugging, always use UPROPERTY()
-    UPROPERTY()
-    int32 SampleInt32;
-    //If you want the property to appear in BP, make sure to use this instead
-    //UPROPERTY(BlueprintReadOnly)
-    UPROPERTY()
-    AActor* TargetActor;
-    //Set
-    void SetInt(const int32 NewValue)
-    {
-            SampleInt32 = NewValue;
-    }
-    //Get
-    AActor* GetActor()
-    {
-        return TargetActor;
-    }
-    //Check
-    bool ActorIsValid() const
-    {
-    if(!TargetActor) return false;
-    return TargetActor-&gt;IsValidLowLevel();
-    }
-    //Constructor
-    FJoyStruct()    {
-        //Always initialize your USTRUCT variables!
-        //   exception is if you know the variable type has its own default constructor
-        SampleInt32     = 5;
-        TargetActor = NULL;
-    }
-};
-</code></pre>
-<pre><code class="language-cpp">USTRUCT()
-struct FParticleStruct{
-  GENERATED_BODY()
-  UPROPERTY()
-  UParticleSystemComponent* PSCPtr;
-  UPROPERTY()   float LifeTime;
-  void SetColor()   {
-  //
-  }
-  FLinearColor GetCurrentColor() const  {
-  //
-  }
-  //For GC
-  void Destroy()    {
-    PSCPtr = nullptr;
-  }
-  //Constructor
-  FParticleStruct()
-  {
-    PSCPtr = NULL;
-    LifeTime = -1;
-  }
-};
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">//If you want this to appear in BP, make sure to use this instead</span>
+<span class="c1">//USTRUCT(BlueprintType)</span>
+<span class="n">USTRUCT</span><span class="p">()</span>
+<span class="k">struct</span> <span class="nc">FJoyStruct</span><span class="p">{</span>
+    <span class="n">GENERATED_BODY</span><span class="p">()</span>
+    <span class="c1">//Always make USTRUCT variables into UPROPERTY()</span>
+    <span class="c1">//    any non-UPROPERTY() struct vars are not replicated</span>
+    <span class="c1">// So to simplify your life for later debugging, always use UPROPERTY()</span>
+    <span class="n">UPROPERTY</span><span class="p">()</span>
+    <span class="n">int32</span> <span class="n">SampleInt32</span><span class="p">;</span>
+    <span class="c1">//If you want the property to appear in BP, make sure to use this instead</span>
+    <span class="c1">//UPROPERTY(BlueprintReadOnly)</span>
+    <span class="n">UPROPERTY</span><span class="p">()</span>
+    <span class="n">AActor</span><span class="o">*</span> <span class="n">TargetActor</span><span class="p">;</span>
+    <span class="c1">//Set</span>
+    <span class="kt">void</span> <span class="nf">SetInt</span><span class="p">(</span><span class="k">const</span> <span class="n">int32</span> <span class="n">NewValue</span><span class="p">)</span>
+    <span class="p">{</span>
+            <span class="n">SampleInt32</span> <span class="o">=</span> <span class="n">NewValue</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">//Get</span>
+    <span class="n">AActor</span><span class="o">*</span> <span class="nf">GetActor</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">TargetActor</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">//Check</span>
+    <span class="kt">bool</span> <span class="nf">ActorIsValid</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">TargetActor</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">TargetActor</span><span class="o">-&gt;</span><span class="n">IsValidLowLevel</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="c1">//Constructor</span>
+    <span class="n">FJoyStruct</span><span class="p">()</span>    <span class="p">{</span>
+        <span class="c1">//Always initialize your USTRUCT variables!</span>
+        <span class="c1">//   exception is if you know the variable type has its own default constructor</span>
+        <span class="n">SampleInt32</span>     <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+        <span class="n">TargetActor</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">USTRUCT</span><span class="p">()</span>
+<span class="k">struct</span> <span class="nc">FParticleStruct</span><span class="p">{</span>
+  <span class="n">GENERATED_BODY</span><span class="p">()</span>
+  <span class="n">UPROPERTY</span><span class="p">()</span>
+  <span class="n">UParticleSystemComponent</span><span class="o">*</span> <span class="n">PSCPtr</span><span class="p">;</span>
+  <span class="n">UPROPERTY</span><span class="p">()</span>   <span class="kt">float</span> <span class="n">LifeTime</span><span class="p">;</span>
+  <span class="kt">void</span> <span class="nf">SetColor</span><span class="p">()</span>   <span class="p">{</span>
+  <span class="c1">//</span>
+  <span class="p">}</span>
+  <span class="n">FLinearColor</span> <span class="nf">GetCurrentColor</span><span class="p">()</span> <span class="k">const</span>  <span class="p">{</span>
+  <span class="c1">//</span>
+  <span class="p">}</span>
+  <span class="c1">//For GC</span>
+  <span class="kt">void</span> <span class="nf">Destroy</span><span class="p">()</span>    <span class="p">{</span>
+    <span class="n">PSCPtr</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="c1">//Constructor</span>
+  <span class="n">FParticleStruct</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="n">PSCPtr</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="n">LifeTime</span> <span class="o">=</span> <span class="mi">-1</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
                 
               
               

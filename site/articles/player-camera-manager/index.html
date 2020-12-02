@@ -14,7 +14,7 @@
     
     
       
-        <title>Programming - Unreal Ultimate Guides</title>
+        <title>Player Camera Manager - Creating Custom Camera Movement - Unreal Ultimate Guides</title>
       
     
     
@@ -57,7 +57,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#blueprint-c" class="md-skip">
+        <a href="#wtf-is-player-camera-manager" class="md-skip">
           Skip to content
         </a>
       
@@ -87,7 +87,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Programming
+              Player Camera Manager - Creating Custom Camera Movement
             
           </span>
         </div>
@@ -208,12 +208,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
     <label class="md-nav__link" for="nav-3">
       Programming
       <span class="md-nav__icon md-icon"></span>
@@ -230,20 +228,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../programming/programming-guide/" class="md-nav__link">
       Programming
     </a>
-    
   </li>
 
         
@@ -273,7 +262,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cpp/variables/" class="md-nav__link">
+    <a href="../../programming/cpp/variables/" class="md-nav__link">
       Variables
     </a>
   </li>
@@ -285,7 +274,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cpp/tarray/" class="md-nav__link">
+    <a href="../../programming/cpp/tarray/" class="md-nav__link">
       TArray
     </a>
   </li>
@@ -297,7 +286,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cpp/struct/" class="md-nav__link">
+    <a href="../../programming/cpp/struct/" class="md-nav__link">
       Struct
     </a>
   </li>
@@ -309,7 +298,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cpp/enumbitmask/" class="md-nav__link">
+    <a href="../../programming/cpp/enumbitmask/" class="md-nav__link">
       Enum / Bitmask
     </a>
   </li>
@@ -321,7 +310,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cpp/delegate/" class="md-nav__link">
+    <a href="../../programming/cpp/delegate/" class="md-nav__link">
       Delegate
     </a>
   </li>
@@ -333,7 +322,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cpp/reference/" class="md-nav__link">
+    <a href="../../programming/cpp/reference/" class="md-nav__link">
       Reference
     </a>
   </li>
@@ -345,7 +334,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cpp/static-variable/" class="md-nav__link">
+    <a href="../../programming/cpp/static-variable/" class="md-nav__link">
       Static Variable
     </a>
   </li>
@@ -357,7 +346,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cpp/logging/" class="md-nav__link">
+    <a href="../../programming/cpp/logging/" class="md-nav__link">
       Logging
     </a>
   </li>
@@ -369,7 +358,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cpp/uproperty-ufunction/" class="md-nav__link">
+    <a href="../../programming/cpp/uproperty-ufunction/" class="md-nav__link">
       UProperty and UFunction
     </a>
   </li>
@@ -381,7 +370,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cpp/display-priority/" class="md-nav__link">
+    <a href="../../programming/cpp/display-priority/" class="md-nav__link">
       Display Priority
     </a>
   </li>
@@ -393,7 +382,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cpp/string/" class="md-nav__link">
+    <a href="../../programming/cpp/string/" class="md-nav__link">
       String Handling
     </a>
   </li>
@@ -405,7 +394,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cpp/preprocessor/" class="md-nav__link">
+    <a href="../../programming/cpp/preprocessor/" class="md-nav__link">
       PREPROCESSOR
     </a>
   </li>
@@ -437,10 +426,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     <label class="md-nav__link" for="nav-5">
       Articles
       <span class="md-nav__icon md-icon"></span>
@@ -459,7 +450,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../articles/controller-and-camera/" class="md-nav__link">
+    <a href="../controller-and-camera/" class="md-nav__link">
       Controller and Camera - What the difference?
     </a>
   </li>
@@ -469,11 +460,76 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../articles/player-camera-manager/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Player Camera Manager - Creating Custom Camera Movement
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Player Camera Manager - Creating Custom Camera Movement
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#so-how-tf-to-do-it" class="md-nav__link">
+    So how TF to do it?
+  </a>
+  
+    <nav class="md-nav" aria-label="So how TF to do it?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blueprint" class="md-nav__link">
+    Blueprint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    C++
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-about-controller-player-controller" class="md-nav__link">
+    What about Controller (Player Controller)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -499,6 +555,48 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#so-how-tf-to-do-it" class="md-nav__link">
+    So how TF to do it?
+  </a>
+  
+    <nav class="md-nav" aria-label="So how TF to do it?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blueprint" class="md-nav__link">
+    Blueprint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    C++
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-about-controller-player-controller" class="md-nav__link">
+    What about Controller (Player Controller)
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -510,9 +608,58 @@
               
                 
                 
-                <p>You can read the <a href="https://docs.unrealengine.com/en-US/Programming/index.html">official documentation here</a>.</p>
-<h1 id="blueprint-c">Blueprint / C++</h1>
-<p>Blueprint / C++? Which one? Both of course! Not everything can be achievable using Blueprint, this is why we are using C++. Also, C++ is slow when you want prototyping, this is why Blueprint is top-notch!</p>
+                <p>Unreal makes us easy to make a (specific) game. If you want to make a game that the camera always follows the player, it is easy! But if you want to make an RTS game, you might be confused, even Crash Bandicoot camera type, you might found difficulty with it. You might ask "But, Crash Bandicoot camera always the following player, right?", the answer is yes, but in reality, the Crash Bandicoot camera is unique. The camera movement always following where the level goes. That makes it harder for us using Unreal Engine, but if you know how to do it, it easier, so let me introduce you to "Player Camera Manager"</p>
+<h1 id="wtf-is-player-camera-manager"><strong>WTF is Player Camera Manager?</strong></h1>
+<p>Player Camera Manager is a class that have a job to manage camera movement. If you think SpringArmComponent, it is helper only, not the actual controller for camera.</p>
+<p><img alt="pcm-1" src="../img/pcm-1.png" /></p>
+<h2 id="so-how-tf-to-do-it"><strong>So how TF to do it?</strong></h2>
+<p>In PlayerCameraManager, you have 2 choice, using Blueprint or C++.</p>
+<h3 id="blueprint">Blueprint</h3>
+<p>Override BlueprintUpdateCamera function, and just create custom movement on it! Set return value to true to make enable it, if false, look at C++ implementation.</p>
+<h3 id="c">C++</h3>
+<p>Override UpdateViewTargetInternal function, copy paste from the original code on it!</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="n">ACustomPCM</span><span class="o">::</span><span class="n">UpdateViewTargetInternal</span><span class="p">(</span><span class="n">FTViewTarget</span><span class="o">&amp;</span> <span class="n">OutVT</span><span class="p">,</span> <span class="kt">float</span> <span class="n">DeltaTime</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">OutVT</span><span class="p">.</span><span class="n">Target</span><span class="p">){</span>
+        <span class="n">FVector</span> <span class="n">OutLocation</span><span class="p">;</span>
+        <span class="n">FVector</span> <span class="n">OutRotation</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">OutFOV</span><span class="p">;</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">BlueprintUpdateCamera</span><span class="p">(</span><span class="n">OutVT</span><span class="p">.</span><span class="n">Target</span><span class="p">,</span> <span class="n">OutLocation</span><span class="p">,</span> <span class="n">OutRotation</span><span class="p">,</span> <span class="n">OutFOV</span><span class="p">)){</span>
+            <span class="n">OutVT</span><span class="p">.</span><span class="n">POV</span><span class="p">.</span><span class="n">Location</span> <span class="o">=</span> <span class="n">OutLocation</span><span class="p">;</span>
+            <span class="n">OutVT</span><span class="p">.</span><span class="n">POV</span><span class="p">.</span><span class="n">Rotation</span> <span class="o">=</span> <span class="n">OutRotaion</span><span class="p">;</span>
+            <span class="n">OutVT</span><span class="p">.</span><span class="n">POV</span><span class="p">.</span><span class="n">FOV</span> <span class="o">=</span> <span class="n">OutFOV</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="n">CameraInfo</span><span class="p">.</span><span class="n">UpdateViewTarget</span><span class="p">(</span><span class="n">OutVT</span><span class="p">,</span> <span class="n">GetTransform</span><span class="p">(),</span> <span class="n">DeltaTime</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><em>Important : You only need to change on the else brackets, just leave the rest as it is.</em></p>
+<h2 id="what-about-controller-player-controller"><strong>What about Controller (Player Controller)</strong></h2>
+<p>Well, because we modified the camera only, the controller is staying as it is. If you want the controller stays the same as PCM, set the Controller rotation the same as PCM.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="n">ACustomPCM</span><span class="o">::</span><span class="n">UpdateViewTargetInternal</span><span class="p">(</span><span class="n">FTViewTarget</span><span class="o">&amp;</span> <span class="n">OutVT</span><span class="p">,</span> <span class="kt">float</span> <span class="n">DeltaTime</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">OutVT</span><span class="p">.</span><span class="n">Target</span><span class="p">){</span>
+        <span class="n">FVector</span> <span class="n">OutLocation</span><span class="p">;</span>
+        <span class="n">FVector</span> <span class="n">OutRotation</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">OutFOV</span><span class="p">;</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">BlueprintUpdateCamera</span><span class="p">(</span><span class="n">OutVT</span><span class="p">.</span><span class="n">Target</span><span class="p">,</span> <span class="n">OutLocation</span><span class="p">,</span> <span class="n">OutRotation</span><span class="p">,</span> <span class="n">OutFOV</span><span class="p">)){</span>
+            <span class="n">OutVT</span><span class="p">.</span><span class="n">POV</span><span class="p">.</span><span class="n">Location</span> <span class="o">=</span> <span class="n">OutLocation</span><span class="p">;</span>
+            <span class="n">OutVT</span><span class="p">.</span><span class="n">POV</span><span class="p">.</span><span class="n">Rotation</span> <span class="o">=</span> <span class="n">OutRotaion</span><span class="p">;</span>
+            <span class="n">OutVT</span><span class="p">.</span><span class="n">POV</span><span class="p">.</span><span class="n">FOV</span> <span class="o">=</span> <span class="n">OutFOV</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="n">CameraInfo</span><span class="p">.</span><span class="n">UpdateViewTarget</span><span class="p">(</span><span class="n">OutVT</span><span class="p">,</span> <span class="n">GetTransform</span><span class="p">(),</span> <span class="n">DeltaTime</span><span class="p">);</span>
+<span class="hll">            <span class="k">if</span><span class="p">(</span><span class="n">CameraInfo</span><span class="p">.</span><span class="n">CameraMode</span> <span class="o">==</span> <span class="n">ECamMode_FollowSpline</span><span class="p">){</span>
+</span><span class="hll">                <span class="k">if</span><span class="p">(</span><span class="n">APlayerController</span><span class="o">*</span> <span class="n">PlayerController</span> <span class="o">=</span> <span class="n">GetOwningPlayerController</span><span class="p">()){</span>
+</span><span class="hll">                    <span class="n">PlayerController</span><span class="o">-&gt;</span><span class="n">SetControlRotation</span><span class="p">(</span><span class="n">OutVT</span><span class="p">.</span><span class="n">POV</span><span class="p">.</span><span class="n">Rotation</span><span class="p">);</span>
+</span><span class="hll">                <span class="p">}</span>
+</span><span class="hll">            <span class="p">}</span>
+</span>        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
                 
               
               
@@ -531,7 +678,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../getting-started/unreal-from-source-code/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../controller-and-camera/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -540,25 +687,11 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Unreal from Source Code
+                Controller and Camera - What the difference?
               </div>
             </div>
           </a>
         
-        
-          <a href="../cpp/variables/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Variables
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
         
       </nav>
     </div>

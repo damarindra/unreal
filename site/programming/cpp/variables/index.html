@@ -389,8 +389,129 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../logging/" class="md-nav__link">
+      Logging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../uproperty-ufunction/" class="md-nav__link">
+      UProperty and UFunction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../display-priority/" class="md-nav__link">
+      Display Priority
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../string/" class="md-nav__link">
+      String Handling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../preprocessor/" class="md-nav__link">
+      PREPROCESSOR
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../actor-lifecycle/" class="md-nav__link">
+      Actor Life-cycle
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    <label class="md-nav__link" for="nav-5">
+      Articles
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Articles" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Articles
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../articles/controller-and-camera/" class="md-nav__link">
+      Controller and Camera - What the difference?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../articles/player-camera-manager/" class="md-nav__link">
+      Player Camera Manager - Creating Custom Camera Movement
+    </a>
   </li>
 
         
@@ -455,12 +576,12 @@
 <li>When you want to use your variable in the blueprint, use <strong>protected</strong> and UPROPERTY BlueprintReadWrite / Something else.</li>
 <li>If you want to use the variable outside of the child class, use <strong>public</strong> / setter getter. <strong>NOTE :</strong> <strong>if you use set get, dont use blueprintReadWrite at the target variable!</strong> Ex:</li>
 </ul>
-<pre><code class="language-cpp">protected:
-  float MoveInput;
-public:
-  UFUNCTION(BlueprintCallable)
-  FORCEINLINE float GetMoveInput() const {return MoveInput;}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">protected</span><span class="o">:</span>
+  <span class="kt">float</span> <span class="n">MoveInput</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BlueprintCallable</span><span class="p">)</span>
+  <span class="n">FORCEINLINE</span> <span class="kt">float</span> <span class="n">GetMoveInput</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">MoveInput</span><span class="p">;}</span>
+</code></pre></div>
 <ul>
 <li>Why? You will have, if you have BlueprintRead, inside the Blueprint, when you call GetMoveInput, it will reproduce 2 type of getter. And that was not good for future development. Just make it simple!</li>
 </ul>
