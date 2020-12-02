@@ -389,8 +389,93 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../string/" class="md-nav__link">
+      String Handling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../preprocessor/" class="md-nav__link">
+      PREPROCESSOR
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../actor-lifecycle/" class="md-nav__link">
+      Actor Life-cycle
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    <label class="md-nav__link" for="nav-5">
+      Articles
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Articles" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Articles
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../articles/controller-and-camera/" class="md-nav__link">
+      Controller and Camera - What the difference?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../articles/player-camera-manager/" class="md-nav__link">
+      Player Camera Manager - Creating Custom Camera Movement
+    </a>
   </li>
 
         
@@ -433,17 +518,17 @@
 <p><img alt="enumbitmask_1" src="../img/enumbitmask_1.png" /></p>
 <h1 id="enum">Enum</h1>
 <p>Enum is quite different with c# version. When we create a type of enum, you can do this (as an example)</p>
-<pre><code>UENUM(BlueprintType)
+<div class="highlight"><pre><span></span><code>UENUM(BlueprintType)
 enum SpecialAction {
     ACT_None    = 0 UMETA(DisplayName = &quot;None&quot;),
     ACT_AutoMove    = 1 UMETA(DisplayName = &quot;Auto Move To&quot;),
     ACT_Vault   = 2 UMETA(DisplayName = &quot;Vault&quot;),
     ACT_Climb1M = 4 UMETA(DisplayName = &quot;Climb 1M&quot;) ,
 };
-</code></pre>
+</code></pre></div>
 <p>To declare the variable, you need TEnumAsByte</p>
-<pre><code>TEnumAsByte&lt;enum ESpecialAction&gt; SpecialAction;
-</code></pre>
+<div class="highlight"><pre><span></span><code>TEnumAsByte&lt;enum ESpecialAction&gt; SpecialAction;
+</code></pre></div>
 <p>All declaration need that, including params.</p>
 <h1 id="bitmask-flags">Bitmask / Flags</h1>
 <blockquote>
@@ -454,24 +539,24 @@ I'm driving crazy on the process finding this shit! no one mention it! I've foun
 <a href="https://issues.unrealengine.com/issue/UE-32816">https://issues.unrealengine.com/issue/UE-32816</a></p>
 </blockquote>
 <p>Bitmask / Flags is not quite different with C# version, just a little bit. I'm using this for example :</p>
-<pre><code class="language-cpp">UENUM(BlueprintType, meta=(Bitflags, UseEnumValuesAsMaskValuesInEditor=&quot;true&quot;))
-enum class ESpecialAction : uint8 {
-    ACT_None    UMETA(DisplayName = &quot;None&quot;),
-    ACT_AutoMove    UMETA(DisplayName = &quot;Auto Move To&quot;),
-    ACT_Vault   UMETA(DisplayName = &quot;Vault&quot;),
-    ACT_Climb1M UMETA(DisplayName = &quot;Climb 1M&quot;) ,
-};
-ENUM_CLASS_FLAGS(ESpecialAction)
+<div class="highlight"><pre><span></span><code><span class="n">UENUM</span><span class="p">(</span><span class="n">BlueprintType</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="p">(</span><span class="n">Bitflags</span><span class="p">,</span> <span class="n">UseEnumValuesAsMaskValuesInEditor</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<span class="k">enum</span> <span class="k">class</span> <span class="nc">ESpecialAction</span> <span class="o">:</span> <span class="n">uint8</span> <span class="p">{</span>
+    <span class="n">ACT_None</span>    <span class="nf">UMETA</span><span class="p">(</span><span class="n">DisplayName</span> <span class="o">=</span> <span class="s">&quot;None&quot;</span><span class="p">),</span>
+    <span class="n">ACT_AutoMove</span>    <span class="n">UMETA</span><span class="p">(</span><span class="n">DisplayName</span> <span class="o">=</span> <span class="s">&quot;Auto Move To&quot;</span><span class="p">),</span>
+    <span class="n">ACT_Vault</span>   <span class="n">UMETA</span><span class="p">(</span><span class="n">DisplayName</span> <span class="o">=</span> <span class="s">&quot;Vault&quot;</span><span class="p">),</span>
+    <span class="n">ACT_Climb1M</span> <span class="n">UMETA</span><span class="p">(</span><span class="n">DisplayName</span> <span class="o">=</span> <span class="s">&quot;Climb 1M&quot;</span><span class="p">)</span> <span class="p">,</span>
+<span class="p">};</span>
+<span class="n">ENUM_CLASS_FLAGS</span><span class="p">(</span><span class="n">ESpecialAction</span><span class="p">)</span>
 
-// declaration
-//can be set as bitmask in blueprnt
-UPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum=ESpecialAction))
-uint8 SpecialAction;
+<span class="c1">// declaration</span>
+<span class="c1">//can be set as bitmask in blueprnt</span>
+<span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span> <span class="n">meta</span> <span class="o">=</span> <span class="p">(</span><span class="n">Bitmask</span><span class="p">,</span> <span class="n">BitmaskEnum</span><span class="o">=</span><span class="n">ESpecialAction</span><span class="p">))</span>
+<span class="n">uint8</span> <span class="n">SpecialAction</span><span class="p">;</span>
 
-//cannot be set as bitmask in blueprint, so use on c++ only
-UPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum=ESpecialAction))
-ESpecialAction SpecialActionC;=&quot;true&quot;))enum class ESpecialAction : uint8 {  ACT_None    UMETA(DisplayName = &quot;None&quot;),    ACT_AutoMove    UMETA(DisplayName = &quot;Auto Move To&quot;),    ACT_Vault   UMETA(DisplayName = &quot;Vault&quot;),   ACT_Climb1M UMETA(DisplayName = &quot;Climb 1M&quot;) ,};ENUM_CLASS_FLAGS(ESpecialAction)// declaration//can be set as bitmask in blueprntUPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum=ESpecialAction))uint8 SpecialAction;//cannot be set as bitmask in blueprint, so use on c++ onlyUPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum=ESpecialAction))ESpecialAction SpecialActionC;
-</code></pre>
+<span class="c1">//cannot be set as bitmask in blueprint, so use on c++ only</span>
+<span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">,</span> <span class="n">meta</span> <span class="o">=</span> <span class="p">(</span><span class="n">Bitmask</span><span class="p">,</span> <span class="n">BitmaskEnum</span><span class="o">=</span><span class="n">ESpecialAction</span><span class="p">))</span>
+<span class="n">ESpecialAction</span> <span class="n">SpecialActionC</span><span class="p">;</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">))</span><span class="k">enum</span> <span class="k">class</span> <span class="nc">ESpecialAction</span> <span class="o">:</span> <span class="n">uint8</span> <span class="p">{</span>  <span class="n">ACT_None</span>    <span class="nf">UMETA</span><span class="p">(</span><span class="n">DisplayName</span> <span class="o">=</span> <span class="s">&quot;None&quot;</span><span class="p">),</span>    <span class="n">ACT_AutoMove</span>    <span class="n">UMETA</span><span class="p">(</span><span class="n">DisplayName</span> <span class="o">=</span> <span class="s">&quot;Auto Move To&quot;</span><span class="p">),</span>    <span class="n">ACT_Vault</span>   <span class="n">UMETA</span><span class="p">(</span><span class="n">DisplayName</span> <span class="o">=</span> <span class="s">&quot;Vault&quot;</span><span class="p">),</span>   <span class="n">ACT_Climb1M</span> <span class="n">UMETA</span><span class="p">(</span><span class="n">DisplayName</span> <span class="o">=</span> <span class="s">&quot;Climb 1M&quot;</span><span class="p">)</span> <span class="p">,};</span><span class="n">ENUM_CLASS_FLAGS</span><span class="p">(</span><span class="n">ESpecialAction</span><span class="p">)</span><span class="c1">// declaration//can be set as bitmask in blueprntUPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum=ESpecialAction))uint8 SpecialAction;//cannot be set as bitmask in blueprint, so use on c++ onlyUPROPERTY(EditAnywhere, meta = (Bitmask, BitmaskEnum=ESpecialAction))ESpecialAction SpecialActionC;</span>
+</code></pre></div>
 <ul>
 <li>UENUM(BlueprintType) : This will register the enum as an BlueprintType, so you can access it inside Blueprint version</li>
 <li>uint8 : Required when implements the Flags / Bitmask version of enum.</li>
@@ -480,31 +565,31 @@ ESpecialAction SpecialActionC;=&quot;true&quot;))enum class ESpecialAction : uin
 </ul>
 <h2 id="non-blueprint-version">Non Blueprint Version</h2>
 <h3 id="add">Add</h3>
-<pre><code>SpecialAction |= ESpecialAction::ACT_AutoMove;
-</code></pre>
+<div class="highlight"><pre><span></span><code>SpecialAction |= ESpecialAction::ACT_AutoMove;
+</code></pre></div>
 <h3 id="remove">Remove</h3>
-<pre><code>SpecialAction &amp;= ~ESpecialAction::ACT_AutoMove;
-</code></pre>
+<div class="highlight"><pre><span></span><code>SpecialAction &amp;= ~ESpecialAction::ACT_AutoMove;
+</code></pre></div>
 <h3 id="has">Has</h3>
-<pre><code>if((SpecialAction &amp; ESpecialAction::ACT_Vault) != ESpecialAction::ACT_None)
-</code></pre>
+<div class="highlight"><pre><span></span><code>if((SpecialAction &amp; ESpecialAction::ACT_Vault) != ESpecialAction::ACT_None)
+</code></pre></div>
 <h3 id="not-reverse">Not / Reverse</h3>
-<pre><code>~SpecialAction
-</code></pre>
+<div class="highlight"><pre><span></span><code>~SpecialAction
+</code></pre></div>
 <h2 id="blueprint-version-uint8">Blueprint Version (uint8)</h2>
 <p>No big different, just cast it to the uint8 / the enum type.</p>
 <h3 id="add_1">Add</h3>
-<pre><code>SpecialAction |= (uint8)ESpecialAction::ACT_AutoMove;
-</code></pre>
+<div class="highlight"><pre><span></span><code>SpecialAction |= (uint8)ESpecialAction::ACT_AutoMove;
+</code></pre></div>
 <h3 id="remove_1">Remove</h3>
-<pre><code>SpecialAction &amp;= (uint8)(~ESpecialAction::ACT_AutoMove);
-</code></pre>
+<div class="highlight"><pre><span></span><code>SpecialAction &amp;= (uint8)(~ESpecialAction::ACT_AutoMove);
+</code></pre></div>
 <h3 id="has_1">Has</h3>
-<pre><code>if((SpecialAction &amp; (uint8)ESpecialAction::ACT_Vault) != (uint8)ESpecialAction::ACT_None)
-</code></pre>
+<div class="highlight"><pre><span></span><code>if((SpecialAction &amp; (uint8)ESpecialAction::ACT_Vault) != (uint8)ESpecialAction::ACT_None)
+</code></pre></div>
 <h3 id="not-reverse_1">Not / Reverse</h3>
-<pre><code>(uint8)(~SpecialAction)
-</code></pre>
+<div class="highlight"><pre><span></span><code>(uint8)(~SpecialAction)
+</code></pre></div>
                 
               
               

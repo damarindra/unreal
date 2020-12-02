@@ -382,8 +382,93 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../string/" class="md-nav__link">
+      String Handling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../preprocessor/" class="md-nav__link">
+      PREPROCESSOR
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../actor-lifecycle/" class="md-nav__link">
+      Actor Life-cycle
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    <label class="md-nav__link" for="nav-5">
+      Articles
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Articles" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Articles
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../articles/controller-and-camera/" class="md-nav__link">
+      Controller and Camera - What the difference?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../articles/player-camera-manager/" class="md-nav__link">
+      Player Camera Manager - Creating Custom Camera Movement
+    </a>
   </li>
 
         
@@ -408,23 +493,23 @@
                   <h1>Logging</h1>
                 
                 <p>Logging an FString</p>
-<pre><code>UE_LOG(LogTemp, Warning, TEXT(&quot;%s&quot;), *YourActor-&gt;GetName());
-</code></pre>
+<div class="highlight"><pre><span></span><code>UE_LOG(LogTemp, Warning, TEXT(&quot;%s&quot;), *YourActor-&gt;GetName());
+</code></pre></div>
 <p>Logging a Bool</p>
-<pre><code>UE_LOG(LogTemp, Warning, TEXT(&quot;%s&quot;), ( bYourBool ? TEXT(&quot;true&quot;) : TEXT(&quot;false&quot;) ));
-</code></pre>
+<div class="highlight"><pre><span></span><code>UE_LOG(LogTemp, Warning, TEXT(&quot;%s&quot;), ( bYourBool ? TEXT(&quot;true&quot;) : TEXT(&quot;false&quot;) ));
+</code></pre></div>
 <p>Logging an Integer</p>
-<pre><code>UE_LOG(LogTemp, Warning, TEXT(&quot;%d&quot;), YourInteger);
-</code></pre>
+<div class="highlight"><pre><span></span><code>UE_LOG(LogTemp, Warning, TEXT(&quot;%d&quot;), YourInteger);
+</code></pre></div>
 <p>Logging a Float</p>
-<pre><code>UE_LOG(LogTemp, Warning, TEXT(&quot;%f&quot;), YourFloat);
-</code></pre>
+<div class="highlight"><pre><span></span><code>UE_LOG(LogTemp, Warning, TEXT(&quot;%f&quot;), YourFloat);
+</code></pre></div>
 <p>Logging an FVector</p>
-<pre><code>UE_LOG(LogTemp, Warning, TEXT(&quot;%s&quot;), *YourVector.ToString());
-</code></pre>
+<div class="highlight"><pre><span></span><code>UE_LOG(LogTemp, Warning, TEXT(&quot;%s&quot;), *YourVector.ToString());
+</code></pre></div>
 <p>Logging an Enum</p>
-<pre><code>UE_LOG(LogTemp, Warning, TEXT(&quot;%s&quot;), *StaticEnum&lt;ECollisionChannel&gt;()-&gt;GetValueAsString(OutHit.Component-&gt;GetCollisionObjectType()));
-</code></pre>
+<div class="highlight"><pre><span></span><code>UE_LOG(LogTemp, Warning, TEXT(&quot;%s&quot;), *StaticEnum&lt;ECollisionChannel&gt;()-&gt;GetValueAsString(OutHit.Component-&gt;GetCollisionObjectType()));
+</code></pre></div>
                 
                   
                 
