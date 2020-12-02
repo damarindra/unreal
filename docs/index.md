@@ -1,6 +1,6 @@
 # Welcome to MkDocs
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Unreal Ultimate Guide, this page was created to help me in case I forget how to do some stuff. So basically, my potato brain difficult to handle so many stuff, so here we are!
 
 ## Commands
 

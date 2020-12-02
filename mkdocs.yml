@@ -3,7 +3,20 @@ site_name: Unreal Ultimate Guides
 nav:
     - Home: index.md
     - 'Getting Started with Unreal':
-      - 'Compiling from Source Code': 'getting-started/compiling-from-source-code.md'
+      - 'Unreal from Source Code': 'getting-started/unreal-from-source-code.md'
+    - 'Programming':
+      - 'Programming': 'programming/programming-guide.md'
+      - 'C++':
+        - 'Variables': 'programming/cpp/variables.md'
+        - 'TArray': 'programming/cpp/tarray.md'
+        - 'Struct': 'programming/cpp/struct.md'
+        - 'Enum / Bitmask': 'programming/cpp/enumbitmask.md'
+        - 'Delegate': 'programming/cpp/delegate.md'
+        - 'Reference': 'programming/cpp/reference.md'
+        - 'Static Variable': 'programming/cpp/static-variable.md'
 
 theme:
   name: material
+
+markdown_extensions:
+  - attr_list
