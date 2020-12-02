@@ -612,11 +612,11 @@
 
 <span class="n">AddMovementInput</span><span class="p">(</span><span class="n">Direction</span><span class="p">,</span> <span class="n">Axis</span><span class="p">);</span>
 </code></pre></div>
+<p>What Controller doing when we code like this? Camera mimicking the controller, resulting match rotation on some axis between controller and rotation. </p>
 <h2 id="camera"><strong>Camera</strong></h2>
-<p>Camera is controlled by PlayerCameraManager. Usually we don't code it if we just make simple camera following pawn. Read <em>Player Camera Manager.</em> Camera can followed controller rotation whenever we using <em>SpringArmComponent</em> and enable inherit controller rotation.</p>
+<p>Camera is controlled by PlayerCameraManager. Usuall,y we don't code it if we just make a simple camera following pawn. Read <a href="https://damarindra.github.io/unreal/articles/player-camera-manager/"><em>Player Camera Manager.</em></a> Camera can be followed by controller rotation whenever we using <em>SpringArmComponent</em> and enable property like <code>inherit controller rotation</code>.</p>
 <h2 id="conclusion"><strong>Conclusion</strong></h2>
-<p>Controller is an actor that manage how the control will look at, it just representation of the rotation, so we can get forward, right, up direction from controller, not player pawn.</p>
-<p>Camera is just mimicking the controller rotation, and with help of <em>SpringArmComponent</em>, it can inherited from the controller rotation.</p>
+<p>Controller is an actor that manage how the control will look, it just a representation of the rotation, so we can get forward, right, up direction from the controller, not player pawn. When a Camera using <em>SpringArmComponent</em> and <code>inherit controller rotation</code>, you can imagine your controller is a camera, but it was <strong>NOT!</strong> Remember this!</p>
                 
               
               
