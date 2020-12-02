@@ -14,7 +14,7 @@
     
     
       
-        <title>Compiling from Source Code - Unreal Ultimate Guides</title>
+        <title>Unreal from Source Code - Unreal Ultimate Guides</title>
       
     
     
@@ -57,7 +57,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-mkdocs" class="md-skip">
+        <a href="#adding-plugin-from-marketplace" class="md-skip">
           Skip to content
         </a>
       
@@ -87,7 +87,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Compiling from Source Code
+              Unreal from Source Code
             
           </span>
         </div>
@@ -200,23 +200,19 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Compiling from Source Code
+        Unreal from Source Code
         <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      Compiling from Source Code
+      Unreal from Source Code
     </a>
     
       
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -226,15 +222,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
+  <a href="#adding-plugin-from-marketplace" class="md-nav__link">
+    Adding Plugin from Marketplace
   </a>
   
 </li>
@@ -265,8 +254,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -275,15 +262,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
+  <a href="#adding-plugin-from-marketplace" class="md-nav__link">
+    Adding Plugin from Marketplace
   </a>
   
 </li>
@@ -301,21 +281,22 @@
               
                 
                 
-                <h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
+                  <h1>Unreal from Source Code</h1>
+                
+                <blockquote>
+<p>Pro tips : Use ssd / m.2. Your cpu can't even handle with your slower hdd.</p>
+</blockquote>
+<p>All step can be found in the official documentation</p>
+<p>https://docs.unrealengine.com/en-US/Programming/Development/BuildingUnrealEngine/index.html</p>
+<h2 id="adding-plugin-from-marketplace">Adding Plugin from Marketplace</h2>
+<p>Adding plugin that you already purchase on marketplace is quite troublesome. What you need to do is:</p>
+<ol>
+<li>Download Unreal Engine that same version as your source engine, just select binary only, so you don't waste your drive space</li>
+<li>Download the plugin</li>
+<li>Go to UE4/Plugin and copy the Marketplace folder and paste to your UE4Source/Plugin, use symlink if you want automatically update all plugin.</li>
+<li>Open GenerateProjectFiles.bat to update the project, so the plugin can be included.</li>
+<li>Compile the engine</li>
+</ol>
                 
               
               
