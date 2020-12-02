@@ -13,12 +13,12 @@ const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 AddMovementInput(Direction, Axis);
 ```
 
+What Controller doing when we code like this? Camera mimicking the controller, resulting match rotation on some axis between controller and rotation. 
+
 ## **Camera**
 
-Camera is controlled by PlayerCameraManager. Usually we don't code it if we just make simple camera following pawn. Read *Player Camera Manager.* Camera can followed controller rotation whenever we using *SpringArmComponent* and enable inherit controller rotation.
+Camera is controlled by PlayerCameraManager. Usuall,y we don't code it if we just make a simple camera following pawn. Read [*Player Camera Manager.*](https://damarindra.github.io/unreal/articles/player-camera-manager/) Camera can be followed by controller rotation whenever we using *SpringArmComponent* and enable property like `inherit controller rotation`.
 
 ## **Conclusion**
 
-Controller is an actor that manage how the control will look at, it just representation of the rotation, so we can get forward, right, up direction from controller, not player pawn.
-
-Camera is just mimicking the controller rotation, and with help of *SpringArmComponent*, it can inherited from the controller rotation.
+Controller is an actor that manage how the control will look, it just a representation of the rotation, so we can get forward, right, up direction from the controller, not player pawn. When a Camera using *SpringArmComponent* and `inherit controller rotation`, you can imagine your controller is a camera, but it was **NOT!** Remember this!
