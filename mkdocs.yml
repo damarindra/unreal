@@ -20,9 +20,11 @@ nav:
         - 'String Handling': 'programming/cpp/string.md'
         - 'PREPROCESSOR': 'programming/cpp/preprocessor.md'
     - 'Actor Life-cycle': 'actor-lifecycle.md'
+    - 'Plugins': 'plugin.md'
     - 'Articles':
       - 'Controller and Camera - What the difference?': 'articles/controller-and-camera.md'
       - 'Player Camera Manager - Creating Custom Camera Movement': 'articles/player-camera-manager.md'
+      - 'Renaming Script': 'articles/rename-script.md'
 
 theme:
   name: material
