@@ -1,6 +1,6 @@
 Unreal makes us easy to make a (specific) game. If you want to make a game that the camera always follows the player, it is easy! But if you want to make an RTS game, you might be confused, even Crash Bandicoot camera type, you might found difficulty with it. You might ask "But, Crash Bandicoot camera always the following player, right?", the answer is yes, but in reality, the Crash Bandicoot camera is unique. The camera movement always following where the level goes. That makes it harder for us using Unreal Engine, but if you know how to do it, it easier, so let me introduce you to "Player Camera Manager"
 
-# **WTF is Player Camera Manager?**
+## **WTF is Player Camera Manager?**
 
 Player Camera Manager is a class that have a job to manage camera movement. If you think SpringArmComponent, it is helper only, not the actual controller for camera.
 
