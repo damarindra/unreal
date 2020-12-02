@@ -1,5 +1,6 @@
 Struct in unreal has a special macro to enable usage on the Blueprint version. The macro is `USTRUCT()`. To make it blueprint type, you can pass the BlueprintType inside `USTRUCT(BlueprintType)`.
 
+>Important! Enum/struct is better to be placed on a specific class/file. Why? Unreal can't use forward declaration on enum/struct. When you want to use this type on other class header file, you need to `#include "file.h"` and it will resulting problem. Unreal doesn't like it. So create new file classes like `GameTypes` and place all your enum/struct inside it. If enum/struct only used in one class, it is fine to declared at those classes, but if used in many classes, better on separate file.
 
 ```cpp
 //If you want this to appear in BP, make sure to use this instead

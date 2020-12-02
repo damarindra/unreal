@@ -1,12 +1,14 @@
-# Where do we declare it (?)
+# How to setup?
 
 All types are best to be stored inside a class such as GameTypes.
+
+>Important! Enum/struct is better to be placed on a specific class/file. Why? Unreal can't use forward declaration on enum/struct. When you want to use this type on other class header file, you need to `#include "file.h"` and it will resulting problem. Unreal doesn't like it. So create new file classes like `GameTypes` and place all your enum/struct inside it. If enum/struct only used in one class, it is fine to declared at those classes, but if used in many classes, better on separate file.
 
 Ex :
 
 ![enumbitmask_1](img/enumbitmask_1.png)
 
-# Enum
+## Enum
 
 Enum is quite different with c# version. When we create a type of enum, you can do this (as an example)
 
@@ -28,7 +30,7 @@ TEnumAsByte<enum ESpecialAction> SpecialAction;
 
 All declaration need that, including params.
 
-# Bitmask / Flags
+## Bitmask / Flags
 
 > Not many people know how to do Bitmask in Unreal. By adding
 `meta = (UseEnumValuesAsMaskValuesInEditor="true")`
@@ -63,55 +65,55 @@ ESpecialAction SpecialActionC;="true"))enum class ESpecialAction : uint8 {	ACT_N
 - None = 0 : Must have the 0 version. This will used for checking flag.
 - ENUM_CLASS_FLAGS(Enum) : This register your enum as a flags
 
-## Non Blueprint Version
+### Non Blueprint Version
 
-### Add
+#### Add
 
 ```
 SpecialAction |= ESpecialAction::ACT_AutoMove;
 ```
 
-### Remove
+#### Remove
 
 ```
 SpecialAction &= ~ESpecialAction::ACT_AutoMove;
 ```
 
-### Has
+#### Has
 
 ```
 if((SpecialAction & ESpecialAction::ACT_Vault) != ESpecialAction::ACT_None)
 ```
 
-### Not / Reverse
+#### Not / Reverse
 
 ```
 ~SpecialAction
 ```
 
-## Blueprint Version (uint8)
+### Blueprint Version (uint8)
 
 No big different, just cast it to the uint8 / the enum type.
 
-### Add
+#### Add
 
 ```
 SpecialAction |= (uint8)ESpecialAction::ACT_AutoMove;
 ```
 
-### Remove
+#### Remove
 
 ```
 SpecialAction &= (uint8)(~ESpecialAction::ACT_AutoMove);
 ```
 
-### Has
+#### Has
 
 ```
 if((SpecialAction & (uint8)ESpecialAction::ACT_Vault) != (uint8)ESpecialAction::ACT_None)
 ```
 
-### Not / Reverse
+#### Not / Reverse
 
 ```
 (uint8)(~SpecialAction)

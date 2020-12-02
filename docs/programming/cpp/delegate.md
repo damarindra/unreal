@@ -1,6 +1,6 @@
-There is 2 type of delegate. If you want to implement just for the blueprint version, you can create simple method. Otherwise, you can use real delegate
+Delegate in Unreal has 2 major type (in cpp, has so many variant such as MULTICAST, EVENT, so on). If you want to implement just for the blueprint version, you can create simple method. Otherwise, you can use real delegate
 
-## Simple, use method
+## Simple, using a method/function
 
 ```cpp
 // header file
@@ -21,15 +21,15 @@ void SomeClass::ImplementThisOnBlueprintAndC_Implementation(){
 
 If you using NativeEvent, right click on blueprint event node, and click **"add call to parent function".** Connect the event node to parent node to call the _Implementation version.
 
-# Real delegate
+## Real delegate
 
 [https://wiki.unrealengine.com/Delegates_In_UE4,_Raw_Cpp_and_BP_Exposed](https://wiki.unrealengine.com/Delegates_In_UE4,_Raw_Cpp_and_BP_Exposed)
 
 Note : You can only use this on the Component script. Actor can't expose the event.
 
-## Copied Content
+### Copied Content
 
-## Steps
+#### Steps
 
 **Signature**
 
@@ -90,7 +90,7 @@ void RespondToMeleeDamageTaken(AActor* HitActor, UPrimitiveComponent* HitCompone
 
 See below to learn how to bind the delegate instance to this function or any number of functions that are present in class instances anywhere in your code base!
 
-## UFUNCTION() !
+#### UFUNCTION() !
 
 Please note that functions that are responding to delegate broadcasts should be UFUNCTION()!
 
@@ -98,15 +98,15 @@ If your delegate Broadcast stalls the game for a bit and then doesnt work, it's 
 
 <3 Rama
 
-## Binding To The Delegate
+#### Binding To The Delegate
 
-### Dynamic Delegates
+##### Dynamic Delegates
 
 ```cpp
 RamaMeleeWeaponComp->RamaMeleeWeapon_OnHit.AddDynamic(this, &USomeClass::RespondToMeleeDamageTaken); //see above in wiki
 ```
 
-### Multicast Delegates
+##### Multicast Delegates
 
 Binding to non-dynamic requires this syntax:
 
@@ -116,7 +116,7 @@ RamaMeleeWeaponComp->RamaMeleeWeapon_OnHit.AddUObject(this, &USomeClass::Respond
 
 [https://docs.unrealengine.com/en-us/Programming/UnrealArchitecture/Delegates/Multicast](https://docs.unrealengine.com/en-us/Programming/UnrealArchitecture/Delegates/Multicast)
 
-### Non Multicast
+##### Non Multicast
 
 Binding a UObject to a non-dynamic, non-multicast delegate requires you to use the following syntax.
 
@@ -138,7 +138,7 @@ This is why I have a pointer to RamaMeleeWeaponComp->RamaMeleeWeapon_OnHit, and 
 
 The reason it is a this pointer is because the code above is run in the object that wants to bind to the delegate, so this is a self-referencing pointer to the UObject we are binding to the delegate.
 
-## Raw C++ Class Instances
+#### Raw C++ Class Instances
 
 Raw delegates are used with non UObject classes, like plugin modules.
 
@@ -146,7 +146,7 @@ Raw delegates are used with non UObject classes, like plugin modules.
 RamaMeleeWeaponComp->RamaMeleeWeapon_OnHit.BindRaw(this, &FSomeRawCPPClass::RespondToMeleeDamageTaken);
 ```
 
-## Slate Class Instances
+#### Slate Class Instances
 
 Slate delegates use this syntax:
 
@@ -154,13 +154,13 @@ Slate delegates use this syntax:
 RamaMeleeWeaponComp->RamaMeleeWeapon_OnHit.CreateSP(this, &SSomeSlateClass::RespondToMeleeDamageTaken);
 ```
 
-## Binding is Per-Instance
+#### Binding is Per-Instance
 
 Please note that when you bind to the delegate this is a per-instance process! That is why you need to include the this pointer, because whichever instance you are calling the code in, it is that particular instance whose function will get called when the delegate is broadcasted.
 
 This means you can choose to have only certain instances of a uobject respond to a delegate, or choose to bind or unbind at any time!
 
-## BP-Friendly Delegates
+#### BP-Friendly Delegates
 
 A BP friendly delegate requires this additional .h code to expose the delegate to Blueprints.
 
@@ -172,13 +172,13 @@ FRamaMeleeHitSignature RamaMeleeWeapon_OnHit;
 
 BP-friendly Delegates should be DYNAMIC_MULTICAST so they can be serialized (saved/loaded) with the BP graph.
 
-## Level Blueprint Friendly Delegates
+#### Level Blueprint Friendly Delegates
 
 When you've made BP-friendly delegates on objects that you can place in the level, you can simply right click on the object instance in your level -> Add Event and see your new delegate! So nice!
 
 This is an additional benefit of using DYNAMIC_MULTICAST delegates! Multi-cast implies binding multiple of various object instances to the delegate and then firing off the event to everyone from a single .Broadcast, which can include your Level Blueprint as a recipient/listener!
 
-## Video Example
+#### Video Example
 
 Here is a video on how a C++ delegate created in an actor component in C++ looks and is called in Blueprints!
 
@@ -188,11 +188,11 @@ The code in this wiki and this video are from my [Melee Weapon Plugin](http://u
 
 [Skip to 5:24](http://www.youtube.com/watch?v=aufEB4TCf30&t=5m24s)
 
-## Further Reading
+#### Further Reading
 
 Epic Documentation: [https://docs.unrealengine.com/latest/INT/Programming/UnrealArchitecture/Delegates/](https://docs.unrealengine.com/latest/INT/Programming/UnrealArchitecture/Delegates/)
 
-## DYNAMIC_MULTICAST And Other Types
+#### DYNAMIC_MULTICAST And Other Types
 
 There are other delegate types besides DYNAMIC_MULTICAST that are not quite as versatile when it comes to Blueprints.
 
@@ -223,7 +223,7 @@ Sample from this file:
  *	will stored and passed directly to bound functions.
 ```
 
-## Conclusion
+#### Conclusion
 
 Enjoy using delegates in UE4 so that any part of your code base can respond to an event triggered by one section of your code!
 
