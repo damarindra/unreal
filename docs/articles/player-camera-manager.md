@@ -44,7 +44,7 @@ void ACustomPCM::UpdateViewTargetInternal(FTViewTarget& OutVT, float DeltaTime){
 Well, because we modified the camera only, the controller is staying as it is. If you want the controller stays the same as PCM, set the Controller rotation the same as PCM.
 
 
-```cpp hl_lines="14 15 16 17 18"
+```cpp hl_lines="14"
 void ACustomPCM::UpdateViewTargetInternal(FTViewTarget& OutVT, float DeltaTime){
 	if(OutVT.Target){
 		FVector OutLocation;
@@ -58,11 +58,7 @@ void ACustomPCM::UpdateViewTargetInternal(FTViewTarget& OutVT, float DeltaTime){
 		}
 		else{
 			CameraInfo.UpdateViewTarget(OutVT, GetTransform(), DeltaTime);
-			if(CameraInfo.CameraMode == ECamMode_FollowSpline){
-				if(APlayerController* PlayerController = GetOwningPlayerController()){
-					PlayerController->SetControlRotation(OutVT.POV.Rotation);
-				}
-			}
+			PlayerController->SetControlRotation(OutVT.POV.Rotation);
 		}
 	}
 }
