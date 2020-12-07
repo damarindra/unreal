@@ -6,6 +6,7 @@
 | Imgui            |                                                                                 [https://github.com/segross/UnrealImGui](https://github.com/segross/UnrealImGui) |
 | UE4Git           |                                                                           [https://github.com/SRombauts/UE4GitPlugin](https://github.com/SRombauts/UE4GitPlugin) |
 | Dialog System    |                                                                             [https://gitlab.com/NotYetGames/DlgSystem](https://gitlab.com/NotYetGames/DlgSystem) |
+| A lot of plugins |                                                                                             [https://ue4resources.com/plugins](https://ue4resources.com/plugins) |
 
 
 ## Related to Unreal
