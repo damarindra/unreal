@@ -11,6 +11,7 @@
 
 ## Related to Unreal
 
-| Plugin                     |                                                                                    Links |
-| :------------------------- | ---------------------------------------------------------------------------------------: |
-| Mixamo to Unreal (Blender) | [https://github.com/enziop/mixamo_converter](https://github.com/enziop/mixamo_converter) |
+| Plugin                     |                                                                                                                Links |
+| :------------------------- | -------------------------------------------------------------------------------------------------------------------: |
+| Mixamo to Unreal (Blender) |                             [https://github.com/enziop/mixamo_converter](https://github.com/enziop/mixamo_converter) |
+| Blender Vector Fields      | [https://github.com/isathar/Blender_UE4_VectorFieldEditor](https://github.com/isathar/Blender_UE4_VectorFieldEditor) |
