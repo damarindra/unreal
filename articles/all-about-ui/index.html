@@ -56,6 +56,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#hud" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -499,9 +504,56 @@
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        All About UI
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
     <a href="./" class="md-nav__link md-nav__link--active">
       All About UI
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hud" class="md-nav__link">
+    HUD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#widget-umg" class="md-nav__link">
+    Widget (UMG)
+  </a>
+  
+    <nav class="md-nav" aria-label="Widget (UMG)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relation-hud-and-widget" class="md-nav__link">
+    Relation HUD and Widget
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -555,6 +607,54 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hud" class="md-nav__link">
+    HUD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#widget-umg" class="md-nav__link">
+    Widget (UMG)
+  </a>
+  
+    <nav class="md-nav" aria-label="Widget (UMG)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relation-hud-and-widget" class="md-nav__link">
+    Relation HUD and Widget
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -563,7 +663,13 @@
                 
                   <h1>All About UI</h1>
                 
-                <p>Unreal has many type of UI, it confusing for a beginner. When we start dealing with UI, we always heard UMG (Widgets)</p>
+                <p>Unreal has many type of UI, it confusing for a beginner. When we start dealing with UI, we always heard about UMG (Widgets), yes that is! You can create UI using Widgets! But, you might have a question, what is HUD? Slate? Widgets? What the f is that? Why they are so many? This article will help you to understand that.</p>
+<h2 id="hud">HUD</h2>
+<p>HUD is the most basic <em>Heads Up Display</em> class, everything will draw in here! What you see at your screen is HUD!</p>
+<h2 id="widget-umg">Widget (UMG)</h2>
+<p><strong>So, isn't HUD is enough?</strong> If you masochist, the answer is yes! lol. Widget will help you to design the UI. To explain it better, let's asking a question, <em>"What is relation between HUD and Widget?"</em></p>
+<h3 id="relation-hud-and-widget">Relation HUD and Widget</h3>
+<p>As you know, HUD will draw everything right? So, <strong>Widget is being drawn by HUD</strong>, got it? As soon as you call "Add to Viewport" your Widget is a Part of the HUD your Player Controller is associated with. Thats the relationship between HUD and Widget. The Widget will then be a childcomponent of your HUD.</p>
                 
               
               
