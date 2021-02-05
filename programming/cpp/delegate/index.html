@@ -356,22 +356,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-the-difference-between-dynamic-and-multi-cast-delegates" class="md-nav__link">
-    What the difference between Dynamic and Multi-cast Delegates?
+  <a href="#dynamic-vs-multi-cast" class="md-nav__link">
+    Dynamic vs Multi-cast
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#is-any-difference-between-multi-cast-delegates-and-single-cast-delegates-except-of-amount-of-handling-functions-single-cast-have-only-one" class="md-nav__link">
-    Is any difference between Multi-cast Delegates and Single-cast Delegates except of amount of handling functions (single cast have only one?)
+  <a href="#multi-cast-delegates-vs-single-cast" class="md-nav__link">
+    Multi-cast Delegates vs Single-cast
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-difference-between-events-and-multi-cast-delegates-which-way-the-most-appropriate-for-using-them" class="md-nav__link">
-    What difference between Events and Multi-cast Delegates? Which way the most appropriate for using them?
+  <a href="#events-vs-multi-cast" class="md-nav__link">
+    Events vs Multi-cast
   </a>
   
 </li>
@@ -382,6 +382,26 @@
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#actor-delegate-vs-component-delegate" class="md-nav__link">
+    Actor Delegate vs Component Delegate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiki" class="md-nav__link">
+    Wiki
+  </a>
+  
+    <nav class="md-nav" aria-label="Wiki">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#copied-content" class="md-nav__link">
@@ -772,22 +792,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-the-difference-between-dynamic-and-multi-cast-delegates" class="md-nav__link">
-    What the difference between Dynamic and Multi-cast Delegates?
+  <a href="#dynamic-vs-multi-cast" class="md-nav__link">
+    Dynamic vs Multi-cast
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#is-any-difference-between-multi-cast-delegates-and-single-cast-delegates-except-of-amount-of-handling-functions-single-cast-have-only-one" class="md-nav__link">
-    Is any difference between Multi-cast Delegates and Single-cast Delegates except of amount of handling functions (single cast have only one?)
+  <a href="#multi-cast-delegates-vs-single-cast" class="md-nav__link">
+    Multi-cast Delegates vs Single-cast
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-difference-between-events-and-multi-cast-delegates-which-way-the-most-appropriate-for-using-them" class="md-nav__link">
-    What difference between Events and Multi-cast Delegates? Which way the most appropriate for using them?
+  <a href="#events-vs-multi-cast" class="md-nav__link">
+    Events vs Multi-cast
   </a>
   
 </li>
@@ -798,6 +818,26 @@
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#actor-delegate-vs-component-delegate" class="md-nav__link">
+    Actor Delegate vs Component Delegate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiki" class="md-nav__link">
+    Wiki
+  </a>
+  
+    <nav class="md-nav" aria-label="Wiki">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#copied-content" class="md-nav__link">
@@ -963,16 +1003,33 @@
 <p>If you using NativeEvent, right click on blueprint event node, and click <strong>"add call to parent function".</strong> Connect the event node to parent node to call the _Implementation version.</p>
 <h2 id="real-delegate">Real delegate</h2>
 <p>There is 4 types of delegates, Dynamic, SingleCast, MultiCast and Event. Below is the comparison</p>
-<h4 id="what-the-difference-between-dynamic-and-multi-cast-delegates">What the difference between Dynamic and Multi-cast Delegates?</h4>
+<h3 id="dynamic-vs-multi-cast">Dynamic vs Multi-cast</h3>
 <p>Dynamic Delegates can be serialized, which means can be bind into Blueprint. Dynamic delegates are also the slowest of all delegate types. Don't use them unless you must.</p>
-<h4 id="is-any-difference-between-multi-cast-delegates-and-single-cast-delegates-except-of-amount-of-handling-functions-single-cast-have-only-one">Is any difference between Multi-cast Delegates and Single-cast Delegates except of amount of handling functions (single cast have only one?)</h4>
+<h3 id="multi-cast-delegates-vs-single-cast">Multi-cast Delegates vs Single-cast</h3>
 <p>Pretty much on point, singlecast is pretty much a direct function pointer, multicast is an array of function pointers. (with some unreal precompiler magic attached)</p>
-<h4 id="what-difference-between-events-and-multi-cast-delegates-which-way-the-most-appropriate-for-using-them">What difference between Events and Multi-cast Delegates? Which way the most appropriate for using them?</h4>
+<h3 id="events-vs-multi-cast">Events vs Multi-cast</h3>
 <p>They are the same thing, if you don't need more than one class to do the broadcast, use an event.</p>
-<h4 id="how-can-i-know-which-object-was-called-this-delegate-i-can-use-object-pointer-as-variable-is-it-safe">How can I know which object was called this Delegate? I can use object pointer as variable? Is it safe?</h4>
+<h3 id="how-can-i-know-which-object-was-called-this-delegate-i-can-use-object-pointer-as-variable-is-it-safe">How can I know which object was called this Delegate? I can use object pointer as variable? Is it safe?</h3>
 <p>There is no default way that I am aware of, but just passing this works, if set up properly.
 If you only need to know who called it (for example, while debugging), print the result of GetName() in the bound function.
 You can pass an object pointer as a variable. I have never encountered any issues while doing so.</p>
+<h3 id="actor-delegate-vs-component-delegate">Actor Delegate vs Component Delegate</h3>
+<p>There is no real different, except in the blueprint. Let's take an example OnComponentHit, in the blueprint, you can directly implement this delegate, but actor delegate, you need to create the event and bind it. Here is the comparison</p>
+<table>
+<thead>
+<tr>
+<th align="left">Component</th>
+<th align="right">Actor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><img alt="enumbitmask_1" src="../img/oncomponenthit.png" /></td>
+<td align="right"><img alt="enumbitmask_1" src="../img/actordelegate.png" /></td>
+</tr>
+</tbody>
+</table>
+<h2 id="wiki">Wiki</h2>
 <p><a href="https://wiki.unrealengine.com/Delegates_In_UE4,_Raw_Cpp_and_BP_Exposed">https://wiki.unrealengine.com/Delegates_In_UE4,_Raw_Cpp_and_BP_Exposed</a></p>
 <p>Note : You can only use this on the Component script. Actor can't expose the event.</p>
 <h3 id="copied-content">Copied Content</h3>
