@@ -356,6 +356,34 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#what-the-difference-between-dynamic-and-multi-cast-delegates" class="md-nav__link">
+    What the difference between Dynamic and Multi-cast Delegates?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-any-difference-between-multi-cast-delegates-and-single-cast-delegates-except-of-amount-of-handling-functions-single-cast-have-only-one" class="md-nav__link">
+    Is any difference between Multi-cast Delegates and Single-cast Delegates except of amount of handling functions (single cast have only one?)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-difference-between-events-and-multi-cast-delegates-which-way-the-most-appropriate-for-using-them" class="md-nav__link">
+    What difference between Events and Multi-cast Delegates? Which way the most appropriate for using them?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-know-which-object-was-called-this-delegate-i-can-use-object-pointer-as-variable-is-it-safe" class="md-nav__link">
+    How can I know which object was called this Delegate? I can use object pointer as variable? Is it safe?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#copied-content" class="md-nav__link">
     Copied Content
   </a>
@@ -744,6 +772,34 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#what-the-difference-between-dynamic-and-multi-cast-delegates" class="md-nav__link">
+    What the difference between Dynamic and Multi-cast Delegates?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-any-difference-between-multi-cast-delegates-and-single-cast-delegates-except-of-amount-of-handling-functions-single-cast-have-only-one" class="md-nav__link">
+    Is any difference between Multi-cast Delegates and Single-cast Delegates except of amount of handling functions (single cast have only one?)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-difference-between-events-and-multi-cast-delegates-which-way-the-most-appropriate-for-using-them" class="md-nav__link">
+    What difference between Events and Multi-cast Delegates? Which way the most appropriate for using them?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-know-which-object-was-called-this-delegate-i-can-use-object-pointer-as-variable-is-it-safe" class="md-nav__link">
+    How can I know which object was called this Delegate? I can use object pointer as variable? Is it safe?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#copied-content" class="md-nav__link">
     Copied Content
   </a>
@@ -906,6 +962,17 @@
 </code></pre></div>
 <p>If you using NativeEvent, right click on blueprint event node, and click <strong>"add call to parent function".</strong> Connect the event node to parent node to call the _Implementation version.</p>
 <h2 id="real-delegate">Real delegate</h2>
+<p>There is 4 types of delegates, Dynamic, SingleCast, MultiCast and Event. Below is the comparison</p>
+<h4 id="what-the-difference-between-dynamic-and-multi-cast-delegates">What the difference between Dynamic and Multi-cast Delegates?</h4>
+<p>Dynamic Delegates can be serialized, which means can be bind into Blueprint. Dynamic delegates are also the slowest of all delegate types. Don't use them unless you must.</p>
+<h4 id="is-any-difference-between-multi-cast-delegates-and-single-cast-delegates-except-of-amount-of-handling-functions-single-cast-have-only-one">Is any difference between Multi-cast Delegates and Single-cast Delegates except of amount of handling functions (single cast have only one?)</h4>
+<p>Pretty much on point, singlecast is pretty much a direct function pointer, multicast is an array of function pointers. (with some unreal precompiler magic attached)</p>
+<h4 id="what-difference-between-events-and-multi-cast-delegates-which-way-the-most-appropriate-for-using-them">What difference between Events and Multi-cast Delegates? Which way the most appropriate for using them?</h4>
+<p>They are the same thing, if you don't need more than one class to do the broadcast, use an event.</p>
+<h4 id="how-can-i-know-which-object-was-called-this-delegate-i-can-use-object-pointer-as-variable-is-it-safe">How can I know which object was called this Delegate? I can use object pointer as variable? Is it safe?</h4>
+<p>There is no default way that I am aware of, but just passing this works, if set up properly.
+If you only need to know who called it (for example, while debugging), print the result of GetName() in the bound function.
+You can pass an object pointer as a variable. I have never encountered any issues while doing so.</p>
 <p><a href="https://wiki.unrealengine.com/Delegates_In_UE4,_Raw_Cpp_and_BP_Exposed">https://wiki.unrealengine.com/Delegates_In_UE4,_Raw_Cpp_and_BP_Exposed</a></p>
 <p>Note : You can only use this on the Component script. Actor can't expose the event.</p>
 <h3 id="copied-content">Copied Content</h3>
