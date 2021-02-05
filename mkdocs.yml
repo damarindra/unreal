@@ -25,6 +25,7 @@ nav:
       - 'Controller and Camera - What the difference?': 'articles/controller-and-camera.md'
       - 'Player Camera Manager - Creating Custom Camera Movement': 'articles/player-camera-manager.md'
       - 'Renaming Script': 'articles/rename-script.md'
+      - 'All About UI': 'articles/all-about-ui.md'
     - 'Others':
       - 'Mixamo Animation List': 'random/mixamo.md'
 
