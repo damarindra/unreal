@@ -25,23 +25,33 @@ If you using NativeEvent, right click on blueprint event node, and click **"add 
 
 There is 4 types of delegates, Dynamic, SingleCast, MultiCast and Event. Below is the comparison
 
-#### What the difference between Dynamic and Multi-cast Delegates?
+### Dynamic vs Multi-cast
 
 Dynamic Delegates can be serialized, which means can be bind into Blueprint. Dynamic delegates are also the slowest of all delegate types. Don't use them unless you must.
 
-#### Is any difference between Multi-cast Delegates and Single-cast Delegates except of amount of handling functions (single cast have only one?)
+### Multi-cast Delegates vs Single-cast
 
 Pretty much on point, singlecast is pretty much a direct function pointer, multicast is an array of function pointers. (with some unreal precompiler magic attached)
 
-#### What difference between Events and Multi-cast Delegates? Which way the most appropriate for using them?
+### Events vs Multi-cast
 
 They are the same thing, if you don't need more than one class to do the broadcast, use an event.
 
-#### How can I know which object was called this Delegate? I can use object pointer as variable? Is it safe?
+### How can I know which object was called this Delegate? I can use object pointer as variable? Is it safe?
 
 There is no default way that I am aware of, but just passing this works, if set up properly.
 If you only need to know who called it (for example, while debugging), print the result of GetName() in the bound function.
 You can pass an object pointer as a variable. I have never encountered any issues while doing so.
+
+### Actor Delegate vs Component Delegate
+
+There is no real different, except in the blueprint. Let's take an example OnComponentHit, in the blueprint, you can directly implement this delegate, but actor delegate, you need to create the event and bind it. Here is the comparison
+
+| Component                                |                                   Actor |
+| :--------------------------------------- | --------------------------------------: |
+| ![enumbitmask_1](img/oncomponenthit.png) | ![enumbitmask_1](img/actordelegate.png) |
+
+## Wiki
 
 [https://wiki.unrealengine.com/Delegates_In_UE4,_Raw_Cpp_and_BP_Exposed](https://wiki.unrealengine.com/Delegates_In_UE4,_Raw_Cpp_and_BP_Exposed)
 
