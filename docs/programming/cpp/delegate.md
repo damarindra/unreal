@@ -23,6 +23,26 @@ If you using NativeEvent, right click on blueprint event node, and click **"add 
 
 ## Real delegate
 
+There is 4 types of delegates, Dynamic, SingleCast, MultiCast and Event. Below is the comparison
+
+#### What the difference between Dynamic and Multi-cast Delegates?
+
+Dynamic Delegates can be serialized, which means can be bind into Blueprint. Dynamic delegates are also the slowest of all delegate types. Don't use them unless you must.
+
+#### Is any difference between Multi-cast Delegates and Single-cast Delegates except of amount of handling functions (single cast have only one?)
+
+Pretty much on point, singlecast is pretty much a direct function pointer, multicast is an array of function pointers. (with some unreal precompiler magic attached)
+
+#### What difference between Events and Multi-cast Delegates? Which way the most appropriate for using them?
+
+They are the same thing, if you don't need more than one class to do the broadcast, use an event.
+
+#### How can I know which object was called this Delegate? I can use object pointer as variable? Is it safe?
+
+There is no default way that I am aware of, but just passing this works, if set up properly.
+If you only need to know who called it (for example, while debugging), print the result of GetName() in the bound function.
+You can pass an object pointer as a variable. I have never encountered any issues while doing so.
+
 [https://wiki.unrealengine.com/Delegates_In_UE4,_Raw_Cpp_and_BP_Exposed](https://wiki.unrealengine.com/Delegates_In_UE4,_Raw_Cpp_and_BP_Exposed)
 
 Note : You can only use this on the Component script. Actor can't expose the event.
